@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>小迅雷 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、SocketSocket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。 二、源代码客户端1234567891011121314151617181920import socketdef main():    tcp_socket&#x3D;socket.socket(socket.AF_INET,socket.SOCK_STREAM)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小迅雷">
+<meta property="og:url" content="http://example.com/2023/02/08/xiaoxunlei/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、SocketSocket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。 二、源代码客户端1234567891011121314151617181920import socketdef main():    tcp_socket&#x3D;socket.socket(socket.AF_INET,socket.SOCK_STREAM)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/xiaoxunlei/image-20230208230608455.png">
+<meta property="og:image" content="http://example.com/img/xiaoxunlei/image-20230208230641884.png">
+<meta property="og:image" content="http://example.com/img/xiaoxunlei/image-20230208230807839.png">
+<meta property="article:published_time" content="2023-02-08T14:59:49.000Z">
+<meta property="article:modified_time" content="2023-02-08T15:08:48.154Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/xiaoxunlei/image-20230208230608455.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-xiaoxunlei" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/xiaoxunlei/" class="article-date">
+  <time datetime="2023-02-08T14:59:49.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小迅雷
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、Socket"><a href="#一、Socket" class="headerlink" title="一、Socket"></a>一、Socket</h3><p>Socket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。</p>
+<h3 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h3><h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    tcp_socket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">    dest_ip=<span class="built_in">input</span>(<span class="string">&quot;输入服务器ip:&quot;</span>)</span><br><span class="line">    dest_port=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;输入端口:&quot;</span>))</span><br><span class="line">    tcp_socket.connect((dest_ip,dest_port))</span><br><span class="line"></span><br><span class="line">    down_file_name=<span class="built_in">input</span>(<span class="string">&quot;请输入下载文件名:&quot;</span>)</span><br><span class="line">    <span class="comment">#把文件名发给服务器</span></span><br><span class="line">    tcp_socket.send(down_file_name.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">    <span class="comment">#接收下载文件</span></span><br><span class="line">    recv_data=tcp_socket.recv(<span class="number">1024</span>*<span class="number">1024</span>)</span><br><span class="line">    <span class="comment">#保存文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;new_&quot;</span>+down_file_name,<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(recv_data)</span><br><span class="line">    tcp_socket.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h4 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_file_2_client</span>(<span class="params">new_client_socket,client_addr</span>):</span><br><span class="line">    <span class="comment">#客户端要下载的文件名</span></span><br><span class="line">    file_name=new_client_socket.recv(<span class="number">1024</span>).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;客户端 %s 要下载 %s&quot;</span>%(<span class="built_in">str</span>(client_addr),file_name))</span><br><span class="line">    <span class="comment">#按照客户端要求读取文件</span></span><br><span class="line">    file_content=<span class="literal">None</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        f =<span class="built_in">open</span>(file_name,<span class="string">&quot;rb&quot;</span>)</span><br><span class="line">        file_content=f.read()</span><br><span class="line">        f.close()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;没有要下载的文件&quot;</span>,file_name)</span><br><span class="line">    <span class="comment">#读取出来就发送给客户</span></span><br><span class="line">    <span class="keyword">if</span> file_content:</span><br><span class="line">        new_client_socket.send(file_content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    tcp_server_socket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">    tcp_server_socket.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">7788</span>))</span><br><span class="line">    tcp_server_socket.listen(<span class="number">100</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        new_client_socket,client_addr=tcp_server_socket.accept()</span><br><span class="line">        <span class="comment">#调用发送文件的函数</span></span><br><span class="line">        send_file_2_client(new_client_socket,client_addr)</span><br><span class="line">        new_client_socket.close()</span><br><span class="line">    tcp_server_socket.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、演示过程"><a href="#三、演示过程" class="headerlink" title="三、演示过程"></a>三、演示过程</h3><ol>
+<li>先运行服务器端</li>
+<li>运行客户机端输入服务器信息</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230608455.png" alt="image-20230208230608455"></p>
+<ol start="3">
+<li>下一步输入下载文件名</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230641884.png" alt="image-20230208230641884"></p>
+<ol start="4">
+<li>下载完成的文件存储另存为new_123.png</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230807839.png" alt="image-20230208230807839"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/xiaoxunlei/" data-id="cldvuclis0002i4uzgvur2jqr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/02/08/udpliaotianshi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          upd聊天室
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/02/08/yuanchengkongzhi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">远程控制程序</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/08/fuza-port-saomiao/">端口扫描器（optparse模块OptionParser方法）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/08/udpliaotianshi/">upd聊天室</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/08/xiaoxunlei/">小迅雷</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/08/yuanchengkongzhi/">远程控制程序</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/04/processliaotianruanjian/">python进程池聊天软件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

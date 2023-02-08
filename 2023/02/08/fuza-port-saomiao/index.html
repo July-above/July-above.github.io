@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>端口扫描器（optparse模块OptionParser方法） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、optparse模块OptionParser的使用方法基本用法​       optparse，是一个更够让程序设计人员轻松设计出简单明了、易于使用、符合标准的Unix命令例程式的Python模块。生成使用和帮助信息    首先你必须导入该类，并创建一个OptionParser对象，然后再使用parser.add_option(…)待定义命令行参数，及其帮助文档。 ​        每个命令行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="端口扫描器（optparse模块OptionParser方法）">
+<meta property="og:url" content="http://example.com/2023/02/08/fuza-port-saomiao/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、optparse模块OptionParser的使用方法基本用法​       optparse，是一个更够让程序设计人员轻松设计出简单明了、易于使用、符合标准的Unix命令例程式的Python模块。生成使用和帮助信息    首先你必须导入该类，并创建一个OptionParser对象，然后再使用parser.add_option(…)待定义命令行参数，及其帮助文档。 ​        每个命令行">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/fuza-port-saomiao/image-20230208232832386.png">
+<meta property="og:image" content="http://example.com/img/fuza-port-saomiao/image-20230208231643798.png">
+<meta property="og:image" content="http://example.com/img/fuza-port-saomiao/image-20230208231954147.png">
+<meta property="og:image" content="http://example.com/img/fuza-port-saomiao/image-20230208232437882.png">
+<meta property="og:image" content="http://example.com/img/fuza-port-saomiao/image-20230208233440220.png">
+<meta property="og:image" content="http://example.com/img/fuza-port-saomiao/image-20230208233645637.png">
+<meta property="article:published_time" content="2023-02-08T15:00:41.000Z">
+<meta property="article:modified_time" content="2023-02-08T15:36:47.347Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/fuza-port-saomiao/image-20230208232832386.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-fuza-port-saomiao" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/fuza-port-saomiao/" class="article-date">
+  <time datetime="2023-02-08T15:00:41.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      端口扫描器（optparse模块OptionParser方法）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、optparse模块OptionParser的使用方法"><a href="#一、optparse模块OptionParser的使用方法" class="headerlink" title="一、optparse模块OptionParser的使用方法"></a>一、optparse模块OptionParser的使用方法</h3><h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p>​       optparse，是一个更够让程序设计人员轻松设计出简单明了、易于使用、符合标准的Unix命令例程式的Python模块。生成使用和帮助信息</p>
+<p>   首先你必须导入该类，并创建一个OptionParser对象，然后再使用parser.add_option(…)待定义命令行参数，及其帮助文档。</p>
+<p>​        每个命令行参数就是由参数名字符串和参数属性组成的。如 -f 或者 file 分别是长短参数名:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser.add_option(&quot;-f&quot;, &quot;--file&quot;, ...)</span><br></pre></td></tr></table></figure>
+
+<p>​        当你将所有的命令行参数都定义好了的时候，我们需要调用parse_args()方法赖际熙add_option()函数依次传入的参数：</p>
+<p>options,args  =  parser.parser_args()<br>       options 是一个字典，其key字典中的关键字可能会是是我们所有的add_option()函数中的dest参数值，其对应的value值，是命令行输入的对应的add_option()函数的参数值。</p>
+<h3 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser</span><br><span class="line"><span class="comment">#判断端口是否开放</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">open</span>(<span class="params">ip,port</span>):</span><br><span class="line">    s=socket.socket()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s.connect((ip,port))<span class="comment">#判断是否连接</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#默认扫描的函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">scan</span>(<span class="params">ip,portlist</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> portlist:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">open</span>(ip,x):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port open&quot;</span>%(ip,x))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port close&quot;</span>%(ip,x))</span><br><span class="line">            </span><br><span class="line"><span class="comment">#范围扫描</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rescan</span>(<span class="params">ip,s,e</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(s,e):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">open</span>(ip,x):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port open&quot;</span>%(ip,x))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port close&quot;</span>%(ip,x))</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    usage=<span class="string">&quot;usage:xxx.py -i ip地址 -p 端口&quot;</span></span><br><span class="line">    parse=OptionParser(usage=usage)</span><br><span class="line">    parse.add_option(<span class="string">&quot;-i&quot;</span>,<span class="string">&quot;--ip&quot;</span>,<span class="built_in">type</span>=<span class="string">&quot;string&quot;</span>,dest=<span class="string">&quot;ipaddress&quot;</span>,<span class="built_in">help</span>=<span class="string">&quot;your target ip here&quot;</span>)</span><br><span class="line">    parse.add_option(<span class="string">&quot;-p&quot;</span>,<span class="string">&quot;--port&quot;</span>,<span class="built_in">type</span>=<span class="string">&quot;string&quot;</span>,dest=<span class="string">&quot;port&quot;</span>,<span class="built_in">help</span>=<span class="string">&quot;your target port here&quot;</span>)</span><br><span class="line">    (options,args)=parse.parse_args()</span><br><span class="line">    ip=options.ipaddress</span><br><span class="line">    port=options.port</span><br><span class="line">    dport=[<span class="number">135</span>,<span class="number">139</span>,<span class="number">445</span>,<span class="number">1433</span>,<span class="number">3306</span>,<span class="number">3389</span>,<span class="number">5944</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;,&#x27;</span> <span class="keyword">in</span> port: <span class="comment">#xx.py -i 127.0.0.1 -p 80,99</span></span><br><span class="line">        port =port.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">        a=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> port:</span><br><span class="line">            a.append(<span class="built_in">int</span>(i))</span><br><span class="line">        scan(ip,a)</span><br><span class="line">    eli<span class="string">f&#x27;-&#x27;</span> <span class="keyword">in</span> port:    <span class="comment">#xx.py -i 127.0.0.1 -p 80-99</span></span><br><span class="line">        port=port.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        s=<span class="built_in">int</span>(port[<span class="number">0</span>])</span><br><span class="line">        e=<span class="built_in">int</span>(port[<span class="number">1</span>])</span><br><span class="line">        rescan(ip,s,e)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">&#x27;all&#x27;</span> <span class="keyword">in</span> port: <span class="comment">#xx.py -i 127.0.0.1 -p all</span></span><br><span class="line">        rescan(ip,<span class="number">1</span>,<span class="number">65535</span>)</span><br><span class="line">    eli<span class="string">f&#x27;default&#x27;</span> <span class="keyword">in</span> port:<span class="comment">#xx.py -i 127.0.0.1 -p default</span></span><br><span class="line">        scan(ip,dport)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、演示"><a href="#三、演示" class="headerlink" title="三、演示"></a>三、演示</h3><ol>
+<li>输入 -help</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208232832386.png" alt="image-20230208232832386"></p>
+<ol start="2">
+<li>输入 -i [ip] -p [port]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208231643798.png" alt="image-20230208231643798"></p>
+<ol start="3">
+<li>输入 -i [ip] -p [135 ,8080]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208231954147.png" alt="image-20230208231954147"></p>
+<ol start="4">
+<li>输入 -i [ip] -p [135 -150]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208232437882.png" alt="image-20230208232437882"></p>
+<ol start="5">
+<li>输入 -i [ip] -p [all]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208233440220.png" alt="image-20230208233440220"></p>
+<ol start="6">
+<li>输入 -i [ip] -p [default]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208233645637.png" alt="image-20230208233645637"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/fuza-port-saomiao/" data-id="cldvuclia0000i4uz0t9y0ptr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/02/08/udpliaotianshi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">upd聊天室</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/08/fuza-port-saomiao/">端口扫描器（optparse模块OptionParser方法）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/08/udpliaotianshi/">upd聊天室</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/08/xiaoxunlei/">小迅雷</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/08/yuanchengkongzhi/">远程控制程序</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/04/processliaotianruanjian/">python进程池聊天软件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

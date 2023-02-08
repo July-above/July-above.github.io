@@ -64,6 +64,190 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-fuza-port-saomiao" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/fuza-port-saomiao/" class="article-date">
+  <time datetime="2023-02-08T15:00:41.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/08/fuza-port-saomiao/">端口扫描器（optparse模块OptionParser方法）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、optparse模块OptionParser的使用方法"><a href="#一、optparse模块OptionParser的使用方法" class="headerlink" title="一、optparse模块OptionParser的使用方法"></a>一、optparse模块OptionParser的使用方法</h3><h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p>​       optparse，是一个更够让程序设计人员轻松设计出简单明了、易于使用、符合标准的Unix命令例程式的Python模块。生成使用和帮助信息</p>
+<p>   首先你必须导入该类，并创建一个OptionParser对象，然后再使用parser.add_option(…)待定义命令行参数，及其帮助文档。</p>
+<p>​        每个命令行参数就是由参数名字符串和参数属性组成的。如 -f 或者 file 分别是长短参数名:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser.add_option(&quot;-f&quot;, &quot;--file&quot;, ...)</span><br></pre></td></tr></table></figure>
+
+<p>​        当你将所有的命令行参数都定义好了的时候，我们需要调用parse_args()方法赖际熙add_option()函数依次传入的参数：</p>
+<p>options,args  =  parser.parser_args()<br>       options 是一个字典，其key字典中的关键字可能会是是我们所有的add_option()函数中的dest参数值，其对应的value值，是命令行输入的对应的add_option()函数的参数值。</p>
+<h3 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser</span><br><span class="line"><span class="comment">#判断端口是否开放</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">open</span>(<span class="params">ip,port</span>):</span><br><span class="line">    s=socket.socket()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s.connect((ip,port))<span class="comment">#判断是否连接</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#默认扫描的函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">scan</span>(<span class="params">ip,portlist</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> portlist:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">open</span>(ip,x):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port open&quot;</span>%(ip,x))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port close&quot;</span>%(ip,x))</span><br><span class="line">            </span><br><span class="line"><span class="comment">#范围扫描</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rescan</span>(<span class="params">ip,s,e</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(s,e):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">open</span>(ip,x):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port open&quot;</span>%(ip,x))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port close&quot;</span>%(ip,x))</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    usage=<span class="string">&quot;usage:xxx.py -i ip地址 -p 端口&quot;</span></span><br><span class="line">    parse=OptionParser(usage=usage)</span><br><span class="line">    parse.add_option(<span class="string">&quot;-i&quot;</span>,<span class="string">&quot;--ip&quot;</span>,<span class="built_in">type</span>=<span class="string">&quot;string&quot;</span>,dest=<span class="string">&quot;ipaddress&quot;</span>,<span class="built_in">help</span>=<span class="string">&quot;your target ip here&quot;</span>)</span><br><span class="line">    parse.add_option(<span class="string">&quot;-p&quot;</span>,<span class="string">&quot;--port&quot;</span>,<span class="built_in">type</span>=<span class="string">&quot;string&quot;</span>,dest=<span class="string">&quot;port&quot;</span>,<span class="built_in">help</span>=<span class="string">&quot;your target port here&quot;</span>)</span><br><span class="line">    (options,args)=parse.parse_args()</span><br><span class="line">    ip=options.ipaddress</span><br><span class="line">    port=options.port</span><br><span class="line">    dport=[<span class="number">135</span>,<span class="number">139</span>,<span class="number">445</span>,<span class="number">1433</span>,<span class="number">3306</span>,<span class="number">3389</span>,<span class="number">5944</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;,&#x27;</span> <span class="keyword">in</span> port: <span class="comment">#xx.py -i 127.0.0.1 -p 80,99</span></span><br><span class="line">        port =port.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">        a=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> port:</span><br><span class="line">            a.append(<span class="built_in">int</span>(i))</span><br><span class="line">        scan(ip,a)</span><br><span class="line">    eli<span class="string">f&#x27;-&#x27;</span> <span class="keyword">in</span> port:    <span class="comment">#xx.py -i 127.0.0.1 -p 80-99</span></span><br><span class="line">        port=port.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        s=<span class="built_in">int</span>(port[<span class="number">0</span>])</span><br><span class="line">        e=<span class="built_in">int</span>(port[<span class="number">1</span>])</span><br><span class="line">        rescan(ip,s,e)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">&#x27;all&#x27;</span> <span class="keyword">in</span> port: <span class="comment">#xx.py -i 127.0.0.1 -p all</span></span><br><span class="line">        rescan(ip,<span class="number">1</span>,<span class="number">65535</span>)</span><br><span class="line">    eli<span class="string">f&#x27;default&#x27;</span> <span class="keyword">in</span> port:<span class="comment">#xx.py -i 127.0.0.1 -p default</span></span><br><span class="line">        scan(ip,dport)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、演示"><a href="#三、演示" class="headerlink" title="三、演示"></a>三、演示</h3><ol>
+<li>输入 -help</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208232832386.png" alt="image-20230208232832386"></p>
+<ol start="2">
+<li>输入 -i [ip] -p [port]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208231643798.png" alt="image-20230208231643798"></p>
+<ol start="3">
+<li>输入 -i [ip] -p [135 ,8080]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208231954147.png" alt="image-20230208231954147"></p>
+<ol start="4">
+<li>输入 -i [ip] -p [135 -150]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208232437882.png" alt="image-20230208232437882"></p>
+<ol start="5">
+<li>输入 -i [ip] -p [all]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208233440220.png" alt="image-20230208233440220"></p>
+<ol start="6">
+<li>输入 -i [ip] -p [default]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208233645637.png" alt="image-20230208233645637"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/fuza-port-saomiao/" data-id="cldvuclia0000i4uz0t9y0ptr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-udpliaotianshi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/udpliaotianshi/" class="article-date">
+  <time datetime="2023-02-08T15:00:01.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/08/udpliaotianshi/">upd聊天室</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、Socket"><a href="#一、Socket" class="headerlink" title="一、Socket"></a>一、Socket</h3><p>Socket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。</p>
+<h3 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h3><h4 id="用户1"><a href="#用户1" class="headerlink" title="用户1"></a>用户1</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_msg</span>(<span class="params">udp_socket</span>):</span><br><span class="line">    dest_ip=<span class="built_in">input</span>(<span class="string">&quot;请输入对方ip:&quot;</span>)</span><br><span class="line">    dest_port=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入对方端口:&quot;</span>))</span><br><span class="line">    send_data=<span class="built_in">input</span>(<span class="string">&quot;你想说啥:&quot;</span>)</span><br><span class="line">    udp_socket.sendto(send_data.encode(<span class="string">&quot;utf-8&quot;</span>),(dest_ip,dest_port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">recv_msg</span>(<span class="params">upd_socket</span>):</span><br><span class="line">    recv_data=upd_socket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;%s 说了 %s&quot;</span>%( <span class="built_in">str</span>(recv_data[<span class="number">1</span>]),recv_data[<span class="number">0</span>].decode(<span class="string">&quot;utf-8&quot;</span>) ) )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)</span><br><span class="line">    udp_socket.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">6001</span>))</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        recv_msg(udp_socket)</span><br><span class="line">        send_msg(udp_socket)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h4 id="用户2"><a href="#用户2" class="headerlink" title="用户2"></a>用户2</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_msg</span>(<span class="params">udp_socket</span>):</span><br><span class="line">    dest_ip=<span class="built_in">input</span>(<span class="string">&quot;请输入对方ip:&quot;</span>)</span><br><span class="line">    dest_port=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入对方端口:&quot;</span>))</span><br><span class="line">    send_data=<span class="built_in">input</span>(<span class="string">&quot;你想说啥:&quot;</span>)</span><br><span class="line">    udp_socket.sendto(send_data.encode(<span class="string">&quot;utf-8&quot;</span>),(dest_ip,dest_port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">recv_msg</span>(<span class="params">upd_socket</span>):</span><br><span class="line">    recv_data=upd_socket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;%s 说了 %s&quot;</span>%( <span class="built_in">str</span>(recv_data[<span class="number">1</span>]),recv_data[<span class="number">0</span>].decode(<span class="string">&quot;utf-8&quot;</span>) ) )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)</span><br><span class="line">    udp_socket.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">6000</span>))</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        send_msg(udp_socket)</span><br><span class="line">        recv_msg(udp_socket)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><ol>
+<li>用户1 输入用户2 的ip、端口号</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234105569.png" alt="image-20230208234105569"></p>
+<ol start="2">
+<li>用户1 向用户2发送消息</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234142928.png" alt="image-20230208234142928"></p>
+<ol start="3">
+<li>用户2接收到用户1发送的消息</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234216499.png" alt="image-20230208234216499"></p>
+<ol start="4">
+<li>用户2向用户1返回消息</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234255222.png" alt="image-20230208234255222"></p>
+<ol start="5">
+<li>用户1 接收到用户2发送的消息</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234324064.png" alt="image-20230208234324064"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/udpliaotianshi/" data-id="cldvuclim0001i4uz5dn7arz4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-xiaoxunlei" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/xiaoxunlei/" class="article-date">
+  <time datetime="2023-02-08T14:59:49.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/08/xiaoxunlei/">小迅雷</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、Socket"><a href="#一、Socket" class="headerlink" title="一、Socket"></a>一、Socket</h3><p>Socket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。</p>
+<h3 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h3><h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    tcp_socket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">    dest_ip=<span class="built_in">input</span>(<span class="string">&quot;输入服务器ip:&quot;</span>)</span><br><span class="line">    dest_port=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;输入端口:&quot;</span>))</span><br><span class="line">    tcp_socket.connect((dest_ip,dest_port))</span><br><span class="line"></span><br><span class="line">    down_file_name=<span class="built_in">input</span>(<span class="string">&quot;请输入下载文件名:&quot;</span>)</span><br><span class="line">    <span class="comment">#把文件名发给服务器</span></span><br><span class="line">    tcp_socket.send(down_file_name.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">    <span class="comment">#接收下载文件</span></span><br><span class="line">    recv_data=tcp_socket.recv(<span class="number">1024</span>*<span class="number">1024</span>)</span><br><span class="line">    <span class="comment">#保存文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;new_&quot;</span>+down_file_name,<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(recv_data)</span><br><span class="line">    tcp_socket.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h4 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_file_2_client</span>(<span class="params">new_client_socket,client_addr</span>):</span><br><span class="line">    <span class="comment">#客户端要下载的文件名</span></span><br><span class="line">    file_name=new_client_socket.recv(<span class="number">1024</span>).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;客户端 %s 要下载 %s&quot;</span>%(<span class="built_in">str</span>(client_addr),file_name))</span><br><span class="line">    <span class="comment">#按照客户端要求读取文件</span></span><br><span class="line">    file_content=<span class="literal">None</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        f =<span class="built_in">open</span>(file_name,<span class="string">&quot;rb&quot;</span>)</span><br><span class="line">        file_content=f.read()</span><br><span class="line">        f.close()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;没有要下载的文件&quot;</span>,file_name)</span><br><span class="line">    <span class="comment">#读取出来就发送给客户</span></span><br><span class="line">    <span class="keyword">if</span> file_content:</span><br><span class="line">        new_client_socket.send(file_content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    tcp_server_socket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">    tcp_server_socket.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">7788</span>))</span><br><span class="line">    tcp_server_socket.listen(<span class="number">100</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        new_client_socket,client_addr=tcp_server_socket.accept()</span><br><span class="line">        <span class="comment">#调用发送文件的函数</span></span><br><span class="line">        send_file_2_client(new_client_socket,client_addr)</span><br><span class="line">        new_client_socket.close()</span><br><span class="line">    tcp_server_socket.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、演示过程"><a href="#三、演示过程" class="headerlink" title="三、演示过程"></a>三、演示过程</h3><ol>
+<li>先运行服务器端</li>
+<li>运行客户机端输入服务器信息</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230608455.png" alt="image-20230208230608455"></p>
+<ol start="3">
+<li>下一步输入下载文件名</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230641884.png" alt="image-20230208230641884"></p>
+<ol start="4">
+<li>下载完成的文件存储另存为new_123.png</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230807839.png" alt="image-20230208230807839"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/xiaoxunlei/" data-id="cldvuclis0002i4uzgvur2jqr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-yuanchengkongzhi" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/02/08/yuanchengkongzhi/" class="article-date">
@@ -371,15 +555,23 @@
       <ul>
         
           <li>
+            <a href="/2023/02/08/fuza-port-saomiao/">端口扫描器（optparse模块OptionParser方法）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/08/udpliaotianshi/">upd聊天室</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/08/xiaoxunlei/">小迅雷</a>
+          </li>
+        
+          <li>
             <a href="/2023/02/08/yuanchengkongzhi/">远程控制程序</a>
           </li>
         
           <li>
             <a href="/2023/02/04/processliaotianruanjian/">python进程池聊天软件</a>
-          </li>
-        
-          <li>
-            <a href="/2023/01/31/yonghengzhilan/">永恒之蓝木马复现</a>
           </li>
         
       </ul>
