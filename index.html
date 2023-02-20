@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-portyinhsehezhuanfa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/20/portyinhsehezhuanfa/" class="article-date">
+  <time datetime="2023-02-20T06:32:41.000Z" itemprop="datePublished">2023-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/20/portyinhsehezhuanfa/">端口映射和转发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前提"><a href="#前提" class="headerlink" title="前提:"></a>前提:</h3><p>假设目标主机在msf中上线</p>
+<h4 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h4><ol>
+<li>清空记录 portfwd flush </li>
+<li>连接黑客ip 端口2020 转发到 内网主机的80端口   portfwd  add -L 192.168.80.128 -l 2020 -p 80 -r 192.168.138.130<img src="/img/portyinhsehezhuanfa/image-20230214100630136.png" alt="image-20230214100630136"></li>
+<li>直接在火狐上使用1270.0.1:2020端口映射过去</li>
+</ol>
+<h4 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h4><ol>
+<li>把目标的 3389端口连接到黑客的 5555 端口 portfwd add -l 5555 -p 3389 -r192.168.138.130</li>
+<li>新开页面 rdesktop 127.0.0.1：5555 可以远程登录到目标主机</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/20/portyinhsehezhuanfa/" data-id="clecg0k1p0000nsuzfz69c96l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-pivoting" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/02/13/pivoting/" class="article-date">
@@ -629,6 +675,10 @@
       <ul>
         
           <li>
+            <a href="/2023/02/20/portyinhsehezhuanfa/">端口映射和转发</a>
+          </li>
+        
+          <li>
             <a href="/2023/02/13/pivoting/">pivoting跳板攻击和自动路由</a>
           </li>
         
@@ -642,10 +692,6 @@
         
           <li>
             <a href="/2023/02/08/xiaoxunlei/">小迅雷</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/08/yuanchengkongzhi/">远程控制程序</a>
           </li>
         
       </ul>
