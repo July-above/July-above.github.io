@@ -5,22 +5,17 @@
   
 
   
-  <title>mimikatz在内网中的使用 | Hexo</title>
+  <title>categories | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mimikatz在内网中的使用域环境，用户信息储存在ntds.dit,加密后为离散值 windows分为两部分 LM Hash ,NTLM Hash     use1:RID:LM-HASH:NT-HASH     LM使用des加密 密码限制在14位 ，NTLM 使用md4加密 mimikatz位置：&#x2F;usr&#x2F;share&#x2F;windows-resources&#x2F;mimikatz&#x2F;x64&#x2F;    把里">
-<meta property="og:type" content="article">
-<meta property="og:title" content="mimikatz在内网中的使用">
-<meta property="og:url" content="http://example.com/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://example.com/categories/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="mimikatz在内网中的使用域环境，用户信息储存在ntds.dit,加密后为离散值 windows分为两部分 LM Hash ,NTLM Hash     use1:RID:LM-HASH:NT-HASH     LM使用des加密 密码限制在14位 ，NTLM 使用md4加密 mimikatz位置：&#x2F;usr&#x2F;share&#x2F;windows-resources&#x2F;mimikatz&#x2F;x64&#x2F;    把里">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/image-20230213202401102.png">
-<meta property="og:image" content="http://example.com/img/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/image-20230213202919766-16762913647945.png">
-<meta property="article:published_time" content="2023-02-21T14:35:46.000Z">
-<meta property="article:modified_time" content="2023-02-21T14:36:21.061Z">
+<meta property="article:published_time" content="2023-02-23T04:24:34.000Z">
+<meta property="article:modified_time" content="2023-02-23T04:25:01.427Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/image-20230213202401102.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-mimikatz在内网中的使用" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="categories-" class="article article-type-categories" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2023-02-21T14:35:46.000Z" itemprop="datePublished">2023-02-21</time>
+    <a href="/categories/index.html" class="article-date">
+  <time datetime="2023-02-23T04:24:34.000Z" itemprop="datePublished">2023-02-23</time>
 </a>
     
   </div>
@@ -83,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mimikatz在内网中的使用
+      categories
     </h1>
   
 
@@ -91,49 +86,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="mimikatz在内网中的使用"><a href="#mimikatz在内网中的使用" class="headerlink" title="mimikatz在内网中的使用"></a>mimikatz在内网中的使用</h3><p>域环境，用户信息储存在ntds.dit,加密后为离散值</p>
-<p>windows分为两部分 LM Hash ,NTLM Hash  </p>
-<p>  use1:RID:LM-HASH:NT-HASH    </p>
-<p>LM使用des加密 密码限制在14位 ，NTLM 使用md4加密</p>
-<p>mimikatz位置：/usr/share/windows-resources/mimikatz/x64/  </p>
-<ol>
-<li>把里面的x64文件夹上传到2008</li>
-<li>前提获取administrator权限，进入shell里面</li>
-<li><img src="/img/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/image-20230213202401102.png" alt="image-20230213202401102"></li>
-<li>下面命令直接读取所有密码（2008明文保存）</li>
-<li>mimikatz “privilege::debug” “log” “sekurlsa::logonpasswords”</li>
-<li><img src="/img/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/image-20230213202919766-16762913647945.png" alt="image-20230213202919766"></li>
-</ol>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="cleglt5820004ecuzala9bczd" class="article-share-link">Share</a>
+      <a data-url="http://example.com/categories/index.html" data-id="cleglt57n0000ecuz043ldoyz" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2023/02/21/pass-the-hash/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          pass-the-hash
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2023/02/21/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">纵向移动和横向移动</div>
-    </a>
-  
-</nav>
-
   
 </article>
 
