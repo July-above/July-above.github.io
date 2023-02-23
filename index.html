@@ -159,20 +159,23 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/redis%E5%92%8C%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/">
-                        redis和密钥登录
+                    <a href="/2023/02/23/%E7%BB%BC%E5%90%882/">
+                        综合2
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        redis和密钥登录前提:能连接对方的redis数据库
+                        
 
-登录靶机的redis数据库
-保存kali中的key
-查看保存的key 并导出key保存到key.txt中(.ssh是隐藏文件夹)
-把key.txt设置到redis数据库中,名字为aaa
-进入数...
+
+使用wpsacn枚举下wp模板
+
+这个命令会搜集目录信息,wp信息,暗示使用什么渗透
+12wpscan --url http://192.168.80.172/wordpress --enumerate ap --enumerate u
+
+
+找...
                     
                 </div>
 
@@ -180,7 +183,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:01:10 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:25:32 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -192,7 +195,7 @@
                     
                         <li>
                             
-                            <a href="/tags/redis%E6%95%B0%E6%8D%AE%E5%BA%93/">redis数据库</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -200,7 +203,7 @@
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/redis%E5%92%8C%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/%E7%BB%BC%E5%90%882/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -210,21 +213,24 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/frp%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93/">
-                        frp内网隧道
+                    <a href="/2023/02/23/%E7%BB%BC%E5%90%881/">
+                        综合1
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        frp内网穿透server1 = frp server
-server2 = frp client
+                        
+靶场ip:192.168.80.171
 
-修改  /frps.ini   
-./frps -c frps.ini 直接启动
+扫描端口
 
-修改frpc的配置  frpc.ini
-frpc -c frpc....
+对网站进行扫描,发现的登录页面
+
+对登录界面进行穷举
+
+kali自带的字典
+1/usr/share/wfuzz/wordlist/Injections/SQL.txt /root/SQL.txt...
                     
                 </div>
 
@@ -232,7 +238,7 @@ frpc -c frpc....
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 13:58:22 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:22:46 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -244,7 +250,7 @@ frpc -c frpc....
                     
                         <li>
                             
-                            <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/">代理和隧道</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -252,7 +258,7 @@ frpc -c frpc....
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/frp%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/%E7%BB%BC%E5%90%881/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -262,23 +268,25 @@ frpc -c frpc....
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/dns%E9%9A%A7%E9%81%93/">
-                        dns隧道
+                    <a href="/2023/02/23/%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/">
+                        命令注入
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        dns隧道
+                        
+扫描端口,发现只开放了80端口
 
-nano  /etc/hosts 在里面添加
-ping  dns.xxx.com -c 2  (攻击机和中间机都需要)
-需要在中间机修改  /etc/dns2tcpd.conf 
-修改前
-修改后
+使用nikto扫描网站发现robots.txt
 
+逐个访问下,发现nothing有用户名密码
 
-中间机启动dns隧道：dns2tcp...
+访问secure目录发现有个压缩包下载下来
+
+解压需要密码,在nothing的第一个
+
+查看mp3是什么东西使用fil...
                     
                 </div>
 
@@ -286,7 +294,7 @@ ping  dns.xxx.com -c 2  (攻击机和中间机都需要)
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 13:58:15 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:38:08 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -298,7 +306,7 @@ ping  dns.xxx.com -c 2  (攻击机和中间机都需要)
                     
                         <li>
                             
-                            <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/">代理和隧道</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -306,7 +314,7 @@ ping  dns.xxx.com -c 2  (攻击机和中间机都需要)
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/dns%E9%9A%A7%E9%81%93/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -316,19 +324,25 @@ ping  dns.xxx.com -c 2  (攻击机和中间机都需要)
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/icmp%E9%9A%A7%E9%81%93/">
-                        icmp隧道
+                    <a href="/2023/02/23/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/">
+                        命令执行
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        icmp隧道黑客可以ping目标，但是无法建立连接
-黑客可以和中间机通信，中间机可以和内网机通信
-中间必须是linux设备  安装 pat install ptunnel 
+                        
+扫描端口
 
-中间机 ptunnel -x 1234    （1234是密码）
-kali...
+访问80080端口
+
+使用nikto扫描出来个text.jsp
+
+发现命令执行
+
+发现有个用户bill,查看bill下有什么
+
+使用ssh进行本地登录加命令关闭防火墙ssh bill@localhost sudo ufw disable...
                     
                 </div>
 
@@ -336,7 +350,7 @@ kali...
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 13:58:46 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:34:39 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -348,7 +362,7 @@ kali...
                     
                         <li>
                             
-                            <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/">代理和隧道</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -356,7 +370,7 @@ kali...
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/icmp%E9%9A%A7%E9%81%93/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -366,16 +380,25 @@ kali...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/neo-regreg/">
-                        neo-regreg代理
+                    <a href="/2023/02/23/%E8%B7%AF%E5%BE%84%E9%81%8D%E5%8E%86/">
+                        路径遍历
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        netsh做端口映射
-netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 connectaddress=192.168.138.130 connectport=80
-查看映射...
+                        
+对靶场ip进行扫描
+登录网站
+使用dirb对网站扫描
+访问这个页面
+使用bp爆破密码为  admin
+使用owasp-zap对网站进行扫描
+发现一个文件包含漏洞
+phpliteadmin创建个数据库
+创建木马
+在数据库写入一句话命令下载木马
+访问这...
                     
                 </div>
 
@@ -383,7 +406,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 13:59:17 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:33:08 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -395,7 +418,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
                     
                         <li>
                             
-                            <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/">代理和隧道</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -403,7 +426,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/neo-regreg/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/%E8%B7%AF%E5%BE%84%E9%81%8D%E5%8E%86/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -413,16 +436,23 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/netsh/">
-                        netsh
+                    <a href="/2023/02/23/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/">
+                        暴力破解
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        netsh做端口映射
-netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 connectaddress=192.168.138.130 connectport=80
-查看映射...
+                        
+使用nikto对往网站进行扫描(ip:192.168.80.167)
+
+访问
+
+发现是wp网站,登录界面是wp-login.php
+
+使用msf得到密码
+
+use auxiliary/scanner/http/wordpress_login_enu...
                     
                 </div>
 
@@ -430,7 +460,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 13:59:29 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:38:40 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -442,7 +472,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
                     
                         <li>
                             
-                            <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/">代理和隧道</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -450,7 +480,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/netsh/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -460,16 +490,24 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/ssh%E9%9A%A7%E9%81%93/">
-                        ssh隧道
+                    <a href="/2023/02/23/the-ether/">
+                        the-ether
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        ssh隧道黑客（ 192.168 .80.128）—-(192.168 .80 .174 )server1(192.168.132.134)—-(192.168.132.132)server2
-正向隧道
-在中转机上 映射内网ssh -CNfL 0.0...
+                        
+扫描靶机ip
+1nmap -sV 192.168.80.0/24 
+
+
+发现了文件包含漏洞的地方
+
+进行穷举
+
+尝试读取../../../../../../../etc/passwd无果
+伪协议php://filter读取文件和伪协议php://i...
                     
                 </div>
 
@@ -477,7 +515,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:01:24 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:11:19 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -489,7 +527,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
                     
                         <li>
                             
-                            <a href="/tags/%E4%BB%A3%E7%90%86%E5%92%8C%E9%9A%A7%E9%81%93/">代理和隧道</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -497,7 +535,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/ssh%E9%9A%A7%E9%81%93/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/the-ether/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -507,19 +545,28 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/">
-                        票据传递
+                    <a href="/2023/02/23/ssl%E6%B3%A8%E5%85%A5/">
+                        ssl注入
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        票据传递
-进入mimikatz，使用 privilege：：debug
+                        上网查找ssl注入漏洞
 
-导出票据   sekurlsa::tickets /export  导出到server2012 的x64文件夹下、
+使用nmap进行端口扫描,只有80端口
 
-清理掉内存里面的一些票据   kerberos::purg...
+登录进来
+
+随便输入点发现记录了ip
+
+使用nikto对网站进行扫描,发现敏感目录
+
+登录进去发现有备份文件.下载下来
+
+打开发现没有什么价值,再次回到登录页面,对输入框抓包
+
+SS...
                     
                 </div>
 
@@ -527,7 +574,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:03:10 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 16:29:48 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -539,7 +586,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
                     
                         <li>
                             
-                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -547,7 +594,7 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/ssl%E6%B3%A8%E5%85%A5/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -557,18 +604,30 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/pass-the-hash/">
-                        pass-the-hash
+                    <a href="/2023/02/23/smb%E6%B3%84%E9%9C%B2/">
+                        smb泄露
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        前提:已获得域管理员的账号密码
-pass-the-hash
-在sserver2012上  ，上传mimikatz
-mimikatz “privilege::debug” “log” “sekurlsa::logonpasswords”
-使用383fe...
+                        
+扫描开启端口
+
+发现开放了samba我们尝试下登录
+
+发现有个share尝试连接
+
+连接成功
+
+查看下有什么文件
+
+我们把deets.txt下载下来,发现密码
+
+在查看wordpress文件夹发现配置文件下载下来,发现一些用户
+
+扫描这个网站
+1d...
                     
                 </div>
 
@@ -576,7 +635,7 @@ mimikatz “privilege::debug” “log” “sekurlsa::logonpasswords”
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:00:10 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:17:42 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -588,7 +647,7 @@ mimikatz “privilege::debug” “log” “sekurlsa::logonpasswords”
                     
                         <li>
                             
-                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -596,7 +655,7 @@ mimikatz “privilege::debug” “log” “sekurlsa::logonpasswords”
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/pass-the-hash/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/smb%E6%B3%84%E9%9C%B2/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -606,17 +665,23 @@ mimikatz “privilege::debug” “log” “sekurlsa::logonpasswords”
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                        mimikatz在内网中的使用
+                    <a href="/2023/02/23/put%E6%BC%8F%E6%B4%9E/">
+                        put漏洞
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        mimikatz在内网中的使用域环境，用户信息储存在ntds.dit,加密后为离散值
-windows分为两部分 LM Hash ,NTLM Hash  
-  use1:RID:LM-HASH:NT-HASH    
-LM使用des加密 密码限制在14...
+                        
+靶机ip:192.168.80.169
+
+查看开启端口
+
+owasp-zap进行扫描发现test目录报错
+
+查看支持什么curl -v -X OPTIONS http://192.168.80.169/test/  
+
+发现允许使用put,使用火狐...
                     
                 </div>
 
@@ -624,7 +689,7 @@ LM使用des加密 密码限制在14...
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:04:56 GMT+0800">
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 17:08:29 GMT+0800">
                 2023-02-23
             </span>
         </span>
@@ -636,7 +701,7 @@ LM使用des加密 密码限制在14...
                     
                         <li>
                             
-                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -644,7 +709,7 @@ LM使用des加密 密码限制在14...
         
     </div>
 
-    <a class="read-more" href="/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/2023/02/23/put%E6%BC%8F%E6%B4%9E/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
