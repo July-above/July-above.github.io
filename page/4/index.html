@@ -141,6 +141,153 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/">
+                        票据传递
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        票据传递
+进入mimikatz，使用 privilege：：debug
+
+导出票据   sekurlsa::tickets /export  导出到server2012 的x64文件夹下、
+
+清理掉内存里面的一些票据   kerberos::purg...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:03:10 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/21/pass-the-hash/">
+                        pass-the-hash
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        前提:已获得域管理员的账号密码
+pass-the-hash
+在sserver2012上  ，上传mimikatz
+mimikatz “privilege::debug” “log” “sekurlsa::logonpasswords”
+使用383fe...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:00:10 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/21/pass-the-hash/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                        mimikatz在内网中的使用
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        mimikatz在内网中的使用域环境，用户信息储存在ntds.dit,加密后为离散值
+windows分为两部分 LM Hash ,NTLM Hash  
+  use1:RID:LM-HASH:NT-HASH    
+LM使用des加密 密码限制在14...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:04:56 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2023/02/21/%E7%BA%B5%E5%90%91%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/">
                         纵向移动和横向移动
                     </a>
@@ -482,144 +629,6 @@ use exploit/...
 
             </li>
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/02/08/yuanchengkongzhi/">
-                        远程控制程序
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        一、前言python编写的远程控制程序，使用socket进行网络连接，获取操作系统命令控制（shell）
-二、源代码服务端
-123456789101112131415161718192021222324252627282930313233343536...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:02:53 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/python/">python</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/02/08/yuanchengkongzhi/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/02/04/processliaotianruanjian/">
-                        python进程池聊天软件
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        什么是socketSocket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。
-服务器端代码123456789101112131415161718192021222324252627...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:00:55 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/python/">python</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/02/04/processliaotianruanjian/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/01/31/yonghengzhilan/">
-                        永恒之蓝木马复现
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        一、永恒之蓝的介绍永恒之蓝是指2017年4月14日晚，黑客团体Shadow Brokers（影子经纪人）公布一大批网络攻击工具，其中包含“永恒之蓝”工具，“永恒之蓝”利用Windows系统的SMB漏洞可以获取系统最高权限。5月12日，不法分子通过改造...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 15:08:07 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/01/31/yonghengzhilan/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
     </ul>
 
     <div class="home-paginator">
@@ -630,6 +639,10 @@ use exploit/...
         >Prev</a>
     
 
+    
+        <a class="next btn"
+           href="/page/5/"
+        >Next</a>
     
 </div>
 

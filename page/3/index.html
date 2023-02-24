@@ -141,6 +141,184 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2023/02/23/dc-3/">
+                        dc-3
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        扫描信息
+
+
+登陆成功
+
+查看使用什么模板
+
+发现使用的是Joomla   使用特定的扫描器扫描   joomscan –url http://192.168.80.155
+
+扫描发现
+
+
+
+发现了使用模板型号  搜索是否有漏洞
+
+打开发现让使用sq...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 16:47:30 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/23/dc-3/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/23/dc-2/">
+                        dc-2
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        扫描信息
+
+
+扫描是否存活
+
+主动扫描 ，可以添加端口扫描，保存为文件
+
+发现进行域名进行了伪装，修改hosts文件
+
+windows  C:\Windows\System32\drivers\etc
+kali   /etc/hosts
+
+
+
+
+扫描...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 16:37:19 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/23/dc-2/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/23/dc-1/">
+                        dc-1
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        信息搜集
+知道mac地址，扫描网段判断IP地址
+扫描它的端口信息
+80端口
+发现  Drupal 都是非常出名的CMS ，使用msf查看漏洞，search Drupal 搜索下它的漏洞
+
+漏洞利用
+
+
+配置rhosts对方网站ip，执行
+
+
+
+查看f...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 16:35:31 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/23/dc-1/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2023/02/21/redis%E5%92%8C%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/">
                         redis和密钥登录
                     </a>
@@ -480,153 +658,6 @@ netsh做端口映射：netsh interface portproxy add v4tov4 listenport=7777 conn
     </div>
 
     <a class="read-more" href="/2023/02/21/ssh%E9%9A%A7%E9%81%93/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/">
-                        票据传递
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        票据传递
-进入mimikatz，使用 privilege：：debug
-
-导出票据   sekurlsa::tickets /export  导出到server2012 的x64文件夹下、
-
-清理掉内存里面的一些票据   kerberos::purg...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:03:10 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/02/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/02/21/pass-the-hash/">
-                        pass-the-hash
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        前提:已获得域管理员的账号密码
-pass-the-hash
-在sserver2012上  ，上传mimikatz
-mimikatz “privilege::debug” “log” “sekurlsa::logonpasswords”
-使用383fe...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:00:10 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/02/21/pass-the-hash/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                        mimikatz在内网中的使用
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        mimikatz在内网中的使用域环境，用户信息储存在ntds.dit,加密后为离散值
-windows分为两部分 LM Hash ,NTLM Hash  
-  use1:RID:LM-HASH:NT-HASH    
-LM使用des加密 密码限制在14...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 14:04:56 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E5%9F%9F%E5%AE%89%E5%85%A8/">域安全</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/02/21/mimikatz%E5%9C%A8%E5%86%85%E7%BD%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>

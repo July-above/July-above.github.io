@@ -141,6 +141,180 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2023/02/23/ssl%E6%B3%A8%E5%85%A5/">
+                        ssl注入
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        上网查找ssl注入漏洞
+
+使用nmap进行端口扫描,只有80端口
+
+登录进来
+
+随便输入点发现记录了ip
+
+使用nikto对网站进行扫描,发现敏感目录
+
+登录进去发现有备份文件.下载下来
+
+打开发现没有什么价值,再次回到登录页面,对输入框抓包
+
+SS...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 16:29:48 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/23/ssl%E6%B3%A8%E5%85%A5/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/23/smb%E6%B3%84%E9%9C%B2/">
+                        smb泄露
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+扫描开启端口
+
+发现开放了samba我们尝试下登录
+
+发现有个share尝试连接
+
+连接成功
+
+查看下有什么文件
+
+我们把deets.txt下载下来,发现密码
+
+在查看wordpress文件夹发现配置文件下载下来,发现一些用户
+
+扫描这个网站
+1d...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 19:17:42 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/23/smb%E6%B3%84%E9%9C%B2/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/02/23/put%E6%BC%8F%E6%B4%9E/">
+                        put漏洞
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+靶机ip:192.168.80.169
+
+查看开启端口
+
+owasp-zap进行扫描发现test目录报错
+
+查看支持什么curl -v -X OPTIONS http://192.168.80.169/test/  
+
+发现允许使用put,使用火狐...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 23 2023 17:08:29 GMT+0800">
+                2023-02-23
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2023/02/23/put%E6%BC%8F%E6%B4%9E/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2023/02/23/ftp%E6%BC%8F%E6%B4%9E/">
                         ftp漏洞
                     </a>
@@ -537,184 +711,6 @@ nc反弹shell
     </div>
 
     <a class="read-more" href="/2023/02/23/dc-4/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/02/23/dc-3/">
-                        dc-3
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        扫描信息
-
-
-登陆成功
-
-查看使用什么模板
-
-发现使用的是Joomla   使用特定的扫描器扫描   joomscan –url http://192.168.80.155
-
-扫描发现
-
-
-
-发现了使用模板型号  搜索是否有漏洞
-
-打开发现让使用sq...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 16:47:30 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/02/23/dc-3/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/02/23/dc-2/">
-                        dc-2
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        扫描信息
-
-
-扫描是否存活
-
-主动扫描 ，可以添加端口扫描，保存为文件
-
-发现进行域名进行了伪装，修改hosts文件
-
-windows  C:\Windows\System32\drivers\etc
-kali   /etc/hosts
-
-
-
-
-扫描...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 16:37:19 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/02/23/dc-2/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/02/23/dc-1/">
-                        dc-1
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        信息搜集
-知道mac地址，扫描网段判断IP地址
-扫描它的端口信息
-80端口
-发现  Drupal 都是非常出名的CMS ，使用msf查看漏洞，search Drupal 搜索下它的漏洞
-
-漏洞利用
-
-
-配置rhosts对方网站ip，执行
-
-
-
-查看f...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Feb 23 2023 16:35:31 GMT+0800">
-                2023-02-23
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/VulnHub%E9%9D%B6%E5%9C%BA/">VulnHub靶场</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2023/02/23/dc-1/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
